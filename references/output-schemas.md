@@ -35,9 +35,9 @@ Template:
     (gap | overlap | drift | underperform)
 
     ### Proposals
-    | Action | Target | Rationale | Linked signals |
-    |--------|--------|-----------|----------------|
-    (create | evolve | prune | experiment | defer)
+    | Action | Target | Rationale | Linked signals | Evidence |
+    |--------|--------|-----------|----------------|----------|
+    (create | evolve | prune | defer) — Evidence: signal | none | inferred
 
 ## Governor Verdict
 
@@ -65,3 +65,33 @@ Template:
     **Parent version:** x.y.z → **New version:** x.y.z
     **Signals resolved:** F-xx, gap-y
     **Lesson:** one sentence
+
+## Run Artifact
+
+Template (file: `references/runs/<run-id>.md`):
+
+    # Skill Botox Run
+    **Run ID:** YYYY-MM-DD-HHMM
+    **Mode:** audit | mutate
+    **Scope:** full | library | skill:<name>
+    **Status:** initialized | observed | analyzed | governed | decided | acted | closed
+
+    ## Observation Report
+    (embedded or "skipped — library scope")
+
+    ## Analysis Report
+    (embedded)
+
+    ## Governor Verdicts
+    (one ## Governor Verdict block per proposal)
+
+    ## Decision
+    **User approval:** none | all | <list>
+    **Approved proposals:** (numbered list or "none")
+
+    ## Act Log
+    | Action | Target | Result |
+    |--------|--------|--------|
+
+    ## Lineage
+    (entries or "none")
