@@ -2,6 +2,16 @@
 
 **A modular, markdown-first meta-framework for deliberately evolving your AI agent skill library over time.**
 
+**Headline metric:** `./scripts/stats.sh` reports structural health (% skills passing govern-check).
+
+**One-line install:**
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/arkitectco/SkillBotox/main/install.sh | bash
+```
+
+See [INSTALL.md](INSTALL.md) for all agents.
+
 This framework turns ad-hoc skill creation and occasional cleanup into a structured, compounding evolutionary process.
 
 ## Vision
@@ -19,9 +29,7 @@ The long-term goal is for this to become the **meta-operating system** for your 
 
 ## Current Status
 
-**v1.0.0** — Installable skill pack with full Observe → Analyze → Govern → Decide → Act → Record loop.
-
-Human-in-the-loop by default: reports and proposals first; writes only after explicit approval.
+**v1.1.0** — Phase A trust layer: install script, doctor, eval harness, structural health stats.
 
 ## Key Principles
 
@@ -67,18 +75,32 @@ SkillBotox/
 
 Existing high-quality meta-skills (`skill-architect` and `skill-destroyer`) are delegated to, not duplicated.
 
-## Install (personal skill pack)
+## Install
+
+```bash
+./install.sh
+```
+
+Or symlink manually:
 
 ```bash
 ln -sf "$(pwd)" ~/.cursor/skills/skill-botox
 ```
 
-Verify: start a new agent chat and ask **"run skill botox"**. The agent should load root `SKILL.md` and the orchestrator without writing files until you approve.
+Verify:
+
+```bash
+./scripts/doctor.sh
+./evals/run-eval.sh
+./scripts/stats.sh
+```
+
+In a new agent chat, ask **"run skill botox"**.
 
 ## Uninstall
 
 ```bash
-rm ~/.cursor/skills/skill-botox
+./install.sh --uninstall
 ```
 
 ## Plugin packaging
@@ -99,7 +121,7 @@ This project is intended to be evolved using its own principles. When working on
 
 ## License
 
-MIT (or your preferred license)
+MIT — see [LICENSE](LICENSE).
 
 ---
 
