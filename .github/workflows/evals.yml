@@ -1,0 +1,17 @@
+name: Evals
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  evals:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run doctor (pack-only in CI)
+        run: CI=true ./scripts/doctor.sh
+      - name: Run eval harness
+        run: ./evals/run-eval.sh
