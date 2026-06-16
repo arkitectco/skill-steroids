@@ -1,0 +1,9 @@
+{
+  "name": "skill-botox",
+  "version": "1.0.0",
+  "description": "Meta-framework for deliberate evolution of your AI agent skill library.",
+  "author": {
+    "name": "arkitectco"
+  },
+  "keywords": ["skills", "meta", "evolution", "governance"]
+}
