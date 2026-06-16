@@ -2,7 +2,7 @@
 
 **A modular, markdown-first meta-framework for deliberately evolving your AI agent skill library over time.**
 
-**Headline metric:** `./scripts/stats.sh` reports structural health (% skills passing govern-check).
+**Headline metrics:** `./scripts/stats.sh` — structural health %, open gaps, unresolved BLOCKs (see [metrics.md](metrics.md)).
 
 **One-line install:**
 
@@ -16,20 +16,13 @@ This framework turns ad-hoc skill creation and occasional cleanup into a structu
 
 ## Vision
 
-Move from manual skill crafting to a closed-loop system that can:
+Move from ad-hoc skill creation to a **governed audit and mutation workflow** that compounds improvement over time.
 
-- Observe real usage and friction
-- Analyze the entire library for gaps, redundancy, and drift
-- Govern changes against explicit principles
-- Evolve and mutate skills intelligently
-- Experiment safely
-- Maintain lineage and institutional knowledge
-
-The long-term goal is for this to become the **meta-operating system** for your personal agentic capabilities.
+v1 delivers **audit + governed mutation**, not autonomous evolution. See [Framework Vision](docs/FRAMEWORK_VISION.md) for long-term goals.
 
 ## Current Status
 
-**v1.1.0** — Phase A trust layer: install script, doctor, eval harness, structural health stats.
+**v1.2.0** — Phase B audit hardening: run persistence, dual metrics, semantic evals, audit/mutate modes.
 
 ## Key Principles
 
@@ -71,7 +64,8 @@ SkillBotox/
 2. Read the [Framework Vision](docs/FRAMEWORK_VISION.md)
 3. Review [HANDOFFER.md](HANDOFFER.md) for implementation guidance
 4. Install the skill pack (see below)
-5. In a new agent chat, ask **"run skill botox"**
+5. In a new agent chat, ask **"skill botox audit"**
+6. Validate with [falsification test](docs/demo-audit.md) before trusting proposals on your library
 
 Existing high-quality meta-skills (`skill-architect` and `skill-destroyer`) are delegated to, not duplicated.
 
@@ -95,7 +89,7 @@ Verify:
 ./scripts/stats.sh
 ```
 
-In a new agent chat, ask **"run skill botox"**.
+In a new agent chat, ask **"skill botox audit"** (reports only) or **"skill botox mutate"** (one governed change).
 
 ## Uninstall
 

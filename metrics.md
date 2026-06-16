@@ -34,8 +34,14 @@ Use these labels in Observer and Analyzer outputs. Numeric scores are optional i
 
 A change is an improvement only if it resolves ≥1 friction/gap signal AND passes Governor with PASS or WARN (not BLOCK).
 
-## Phase A Headline Metric
+## Headline Metrics (Phase B)
 
-**Structural health score** = % of discovered SKILL.md files passing deterministic govern-check (P-02, P-03, P-05).
+| Metric | Source | Healthy | Meaning |
+|--------|--------|---------|---------|
+| Structural health | `./scripts/stats.sh` | ≥90% | % skills passing P-02, P-03, P-05 govern-check |
+| Open gaps | Last run artifact | 0 | Unfilled skill domains from Analyzer |
+| Unresolved BLOCKs | Last run artifact | 0 | Governor BLOCK verdicts not yet addressed |
 
-Target for healthy library: **≥90%**. Run `./scripts/stats.sh` for current score.
+**Important:** Structural health alone does not prove skill usefulness. Pair with audit runs and friction evidence (F-xx signals).
+
+Target for healthy library: **≥90% structural AND 0 unresolved BLOCKs**.

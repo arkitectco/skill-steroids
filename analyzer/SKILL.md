@@ -22,9 +22,18 @@ Evolves skill-destroyer's per-skill review into library-wide intelligence.
 Run: `bash scripts/skill-inventory.sh`  
 If script unavailable, manually scan `~/.cursor/skills` and `~/.agents/skills`.
 
+### Scope limits (v1)
+
+| Scope | Deep review cap | Proposal cap |
+|-------|-----------------|--------------|
+| full/library | 5 skills (worst structural score + Observer-named skills first) | 3 |
+| skill:X | 1 skill | 1 |
+
+Structural pre-score: run `bash scripts/govern-check.sh` on each skill; prioritize failures.
+
 ### Per-skill review (sample or full based on scope)
 
-- **full/library**: review all skills (batch by directory)
+- **full/library**: deep review up to cap (see above)
 - **skill:X**: review named skill only
 - Apply destroyer rubric; record OK/WARN/FAIL
 
@@ -45,5 +54,12 @@ Emit Analysis Report with prioritized proposals:
 - Priority 3: optimizations
 
 Link each proposal to signal IDs.
+
+### Evidence rule
+
+Each proposal MUST include Evidence column:
+- `signal` — linked F-xx or gap from Observer/Analysis with quote
+- `inferred` — structural/rubric finding only (no session evidence)
+- Proposals with `none` are BLOCKED unless user opts in with "allow evidence-free proposals"
 
 Do not edit files. Proposals only.

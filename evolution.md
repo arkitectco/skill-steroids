@@ -5,19 +5,22 @@
 1. **Observe** — Capture session friction and usage signals (`observer/SKILL.md`)
 2. **Analyze** — Library-wide gaps, overlap, drift (`analyzer/SKILL.md`)
 3. **Govern** — Validate proposals against `principles.md` (`governor/SKILL.md`)
-4. **Decide** — Orchestrator picks: Create | Evolve | Experiment | Prune | Defer
-5. **Act** — Evolver / Experimenter / user-approved edits
+4. **Decide** — Orchestrator picks: Create | Evolve | Prune | Defer
+5. **Act** — Evolver / user-approved edits (mutate mode only)
 6. **Record** — Lineage + metrics update (`lineage/SKILL.md`)
 
 ## Triggers
 
 | Trigger | Mode | Scope |
 |---------|------|-------|
-| User: "run skill botox" | Full loop | Session + library |
-| User: "skill library health" | Analyze + Govern | Library |
-| User: "evolve skill X" | Evolve path | Single skill |
-| Weekly automation (optional) | Analyze only | Library |
-| Post-project debrief | Observe + Analyze | Session |
+| User: "run skill botox" / "skill botox audit" | audit | Session + library |
+| User: "skill library health" | audit | Library |
+| User: "skill botox mutate" / "evolve skill X" | mutate | Single skill |
+| Post-project debrief | audit | Session |
+
+## Optional automation
+
+See `references/hooks/post-session-reminder.md` for an AGENTS.md snippet or Cursor hook to remind you after large sessions. No built-in scheduler in v1.
 
 ## Decision Tree (Orchestrator)
 
@@ -29,17 +32,17 @@ ELSE IF user named specific skill:
 ELSE:
   RUN analyzer (quick inventory) only
 
-FOR each proposal:
+FOR each proposal (max 3):
   RUN governor
   IF BLOCK → drop or revise (max 1 revise attempt)
   IF WARN → surface to user with mitigations
   IF PASS → queue for user approval
 
-IF user approves:
-  RUN evolver (or experimenter if A/B)
+IF mutate mode AND user approves ONE proposal:
+  RUN evolver
   RUN lineage record
 ELSE:
-  STOP with summary
+  STOP with summary (audit mode: no writes)
 ```
 
 Human checkpoint required before any filesystem write.

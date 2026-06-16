@@ -15,10 +15,19 @@ version: 1.0.0
 
 ## Procedure
 
-1. Scan conversation for metrics signals F-01 through F-05 and S-01 through S-04 from `metrics.md`
-2. Note skills mentioned, loaded, or should have loaded (from `<available_skills>` if visible)
-3. Do not invent signals — cite verbatim user/agent quotes as evidence
-4. Severity: High (blocked task), Medium (workaround), Low (minor inefficiency)
+1. **Check input source** (required):
+   - User-provided friction bullets (preferred), OR
+   - User confirms "analyze this session transcript only", OR
+   - User points to prior session export path
+   - If none: emit **"Insufficient observation input"** and stop — do not invent F-xx signals
+
+2. Scan provided material for metrics signals F-01 through F-05 and S-01 through S-04 from `metrics.md`
+
+3. Note skills mentioned, loaded, or should have loaded (from `<available_skills>` if visible)
+
+4. **Do not invent signals** — cite verbatim user/agent quotes as evidence. If no quote supports a signal, omit it.
+
+5. Severity: High (blocked task), Medium (workaround), Low (minor inefficiency)
 
 ## Output
 

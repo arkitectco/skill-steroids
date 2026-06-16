@@ -1,8 +1,8 @@
 ---
 name: skill-botox
-description: Meta-framework for deliberate closed-loop evolution of an AI agent skill library. Orchestrates observation, analysis, governance, experimentation, and improvement. Use when the user says "run skill botox", "evolve my skills", "skill library health", "skill debt", "review my skills", or asks to improve their skill collection systematically.
+description: Meta-framework for deliberate evolution of an AI agent skill library. Orchestrates observation, analysis, governance, and governed mutation. Use when the user says "run skill botox", "skill botox audit", "skill botox mutate", "evolve my skills", "skill library health", "skill debt", "review my skills", or asks to improve their skill collection systematically.
 disable-model-invocation: true
-version: 1.0.0
+version: 1.2.0
 ---
 
 # Skill Botox Framework
@@ -11,9 +11,15 @@ Entry point for the skill library evolution loop.
 
 ## Activation
 
+| User says | Mode |
+|-----------|------|
+| "run skill botox", "skill botox audit" | audit |
+| "skill botox mutate", "evolve skill X" | mutate |
+
 1. Read `evolution.md` for trigger context
-2. Read `orchestrator/SKILL.md` and execute from step 1
+2. Read `orchestrator/SKILL.md` and execute from Step 0
 3. Never skip Governor before any write
+4. Persist all output to `references/runs/<run-id>.md`
 
 ## Pack layout
 
