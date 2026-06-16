@@ -1,0 +1,21 @@
+{
+  "fixtures": [
+    {
+      "path": "evals/golden-pass/minimal-skill/SKILL.md",
+      "expect": { "P-02": "pass", "P-03": "pass", "P-05": "pass" }
+    },
+    {
+      "path": "evals/golden-violations/short-desc/SKILL.md",
+      "expect": { "P-02": "fail", "P-03": "pass", "P-05": "pass" }
+    },
+    {
+      "path": "evals/golden-violations/bloated/SKILL.md",
+      "expect": { "P-02": "pass", "P-03": "fail", "P-05": "pass" }
+    },
+    {
+      "path": "evals/golden-violations/missing-io/SKILL.md",
+      "expect": { "P-02": "pass", "P-03": "pass", "P-05": "fail" },
+      "flags": ["--orchestrator"]
+    }
+  ]
+}
