@@ -4,6 +4,7 @@ set -euo pipefail
 
 roots=(
   "$HOME/.cursor/skills"
+  "$HOME/.cursor/skills-cursor"
   "$HOME/.agents/skills"
   "$HOME/.claude/skills"
 )
@@ -11,6 +12,11 @@ roots=(
 for root in "${roots[@]}"; do
   if [[ -d "$root" ]]; then
     echo "=== $root ==="
-    find "$root" -name 'SKILL.md' -not -path '*/.*' 2>/dev/null | sort
+    local_count="$(find -L "$root" -name 'SKILL.md' 2>/dev/null | wc -l | tr -d ' ')"
+    if [[ "$local_count" -eq 0 ]]; then
+      echo "(no SKILL.md files found)"
+    else
+      find -L "$root" -name 'SKILL.md' 2>/dev/null | sort
+    fi
   fi
 done

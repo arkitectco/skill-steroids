@@ -33,3 +33,9 @@ Use these labels in Observer and Analyzer outputs. Numeric scores are optional i
 ## Improvement Definition
 
 A change is an improvement only if it resolves ≥1 friction/gap signal AND passes Governor with PASS or WARN (not BLOCK).
+
+## Phase A Headline Metric
+
+**Structural health score** = % of discovered SKILL.md files passing deterministic govern-check (P-02, P-03, P-05).
+
+Target for healthy library: **≥90%**. Run `./scripts/stats.sh` for current score.
