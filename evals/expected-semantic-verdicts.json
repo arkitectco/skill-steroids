@@ -1,0 +1,25 @@
+{
+  "fixtures": [
+    {
+      "path": "evals/golden-proposals/monolithic-homelab.md",
+      "expect": { "P-01": "fail", "P-04": "pass", "P-06": "pass" }
+    },
+    {
+      "path": "evals/golden-proposals/duplicate-architect.md",
+      "expect": { "P-01": "pass", "P-04": "fail", "P-06": "pass" }
+    },
+    {
+      "path": "evals/golden-proposals/clean-evolve.md",
+      "expect": { "P-01": "pass", "P-04": "pass", "P-06": "pass" }
+    },
+    {
+      "path": "evals/golden-proposals/prune-no-lineage.md",
+      "expect": { "P-01": "pass", "P-04": "pass", "P-06": "fail" },
+      "flags": ["--change-type", "prune"]
+    },
+    {
+      "path": "evals/golden-proposals/router-ok.md",
+      "expect": { "P-01": "pass", "P-04": "pass", "P-06": "pass" }
+    }
+  ]
+}

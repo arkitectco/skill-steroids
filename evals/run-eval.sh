@@ -57,10 +57,17 @@ assert_fixture "evals/golden-violations/bloated/SKILL.md" P-03 fail
 assert_fixture "evals/golden-violations/missing-io/SKILL.md" P-05 fail "--orchestrator"
 
 echo ""
-if [[ "$FAILURES" -eq 0 ]]; then
-  echo "Eval harness: PASS ($TOTAL/$TOTAL)"
+echo "Running semantic eval harness..."
+echo "------------------------------"
+chmod +x "$ROOT/evals/run-semantic-eval.sh" "$ROOT/scripts/govern-semantic-check.sh"
+SEMANTIC_EXIT=0
+"$ROOT/evals/run-semantic-eval.sh" || SEMANTIC_EXIT=$?
+
+echo ""
+if [[ "$FAILURES" -eq 0 && "$SEMANTIC_EXIT" -eq 0 ]]; then
+  echo "Eval harness: PASS (structural + semantic)"
   exit 0
 else
-  echo "Eval harness: FAIL ($FAILURES/$TOTAL mismatches)"
+  echo "Eval harness: FAIL"
   exit 1
 fi
