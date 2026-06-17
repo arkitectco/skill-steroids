@@ -1,4 +1,4 @@
-# Skill Botox Principles (Living Constitution)
+# SkillSteroids Principles (Living Constitution)
 
 Version: 1.0.0  
 Last updated: 2026-06-15

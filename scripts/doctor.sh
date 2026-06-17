@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Verify Skill Botox install and recommended dependencies.
+# Verify SkillSteroids install and recommended dependencies.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -19,7 +19,7 @@ check() {
   fi
 }
 
-echo "Skill Botox Doctor"
+echo "SkillSteroids Doctor"
 echo "=================="
 echo "Pack root: $ROOT"
 echo ""
@@ -33,8 +33,8 @@ check "skill-architect (recommended)" "$HOME/.agents/skills/skill-architect/SKIL
 
 if [[ "${CI:-}" == "true" ]]; then
   echo "ℹ CI mode: skipping Cursor install check"
-elif [[ -L "$HOME/.cursor/skills/skill-botox" ]] || [[ -d "$HOME/.cursor/skills/skill-botox" ]]; then
-  echo "✓ Cursor install: ~/.cursor/skills/skill-botox"
+elif [[ -L "$HOME/.cursor/skills/skill-steroids" ]] || [[ -d "$HOME/.cursor/skills/skill-steroids" ]]; then
+  echo "✓ Cursor install: ~/.cursor/skills/skill-steroids"
 else
   echo "✗ Cursor install: not found (run ./install.sh)"
   FAIL=1

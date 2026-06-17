@@ -1,4 +1,4 @@
-# Skill Botox Process
+# SkillSteroids Process
 
 ## Loop
 
@@ -13,9 +13,9 @@
 
 | Trigger | Mode | Scope |
 |---------|------|-------|
-| User: "run skill botox" / "skill botox audit" | audit | Session + library |
+| User: "run skill steroids" / "skill steroids audit" | audit | Session + library |
 | User: "skill library health" | audit | Library |
-| User: "skill botox mutate" / "evolve skill X" | mutate | Single skill |
+| User: "skill steroids mutate" / "evolve skill X" | mutate | Single skill |
 | Post-project debrief | audit | Session |
 
 ## Optional automation

@@ -1,6 +1,6 @@
 ---
 name: skill-observer
-description: Captures friction and success signals from the current agent session or user-provided notes for Skill Botox. Use during orchestrator Observe step or when user says "observe skill friction", "what skill problems happened this session".
+description: Captures friction and success signals from the current agent session or user-provided notes for SkillSteroids. Use during orchestrator Observe step or when user says "observe skill friction", "what skill problems happened this session".
 disable-model-invocation: true
 version: 1.0.0
 ---

@@ -1,6 +1,6 @@
 ---
 name: missing-io-fail
-description: Orchestrator-class fixture missing I/O sections. Use when testing skill botox P-05 eval harness.
+description: Orchestrator-class fixture missing I/O sections. Use when testing skill steroids P-05 eval harness.
 disable-model-invocation: true
 version: 0.0.1
 ---

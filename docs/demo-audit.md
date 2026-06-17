@@ -1,4 +1,4 @@
-# Skill Botox Audit — Falsification Test
+# SkillSteroids Audit — Falsification Test
 
 Manual protocol to validate Analyzer proposal quality before trusting the loop.
 
@@ -10,7 +10,7 @@ Manual protocol to validate Analyzer proposal quality before trusting the loop.
 
 ## Execute (20 min)
 
-1. New agent chat: "skill botox audit"
+1. New agent chat: "skill steroids audit"
 2. Paste your 3 friction bullets when Observer asks
 3. Save run artifact from `references/runs/`
 

@@ -1,11 +1,11 @@
 ---
-name: skill-botox
-description: Meta-framework for deliberate evolution of an AI agent skill library. Orchestrates observation, analysis, governance, and governed mutation. Use when the user says "run skill botox", "skill botox audit", "skill botox mutate", "evolve my skills", "skill library health", "skill debt", "review my skills", or asks to improve their skill collection systematically.
+name: skill-steroids
+description: Meta-framework for deliberate evolution of an AI agent skill library. Orchestrates observation, analysis, governance, and governed mutation. Use when the user says "run skill steroids", "skill steroids audit", "skill steroids mutate", "evolve my skills", "skill library health", "skill debt", "review my skills", or asks to improve their skill collection systematically.
 disable-model-invocation: true
-version: 1.2.0
+version: 2.0.0
 ---
 
-# Skill Botox Framework
+# SkillSteroids Framework
 
 Entry point for the skill library evolution loop.
 
@@ -13,8 +13,8 @@ Entry point for the skill library evolution loop.
 
 | User says | Mode |
 |-----------|------|
-| "run skill botox", "skill botox audit" | audit |
-| "skill botox mutate", "evolve skill X" | mutate |
+| "run skill steroids", "skill steroids audit" | audit |
+| "skill steroids mutate", "evolve skill X" | mutate |
 
 1. Read `evolution.md` for trigger context
 2. Read `orchestrator/SKILL.md` and execute from Step 0

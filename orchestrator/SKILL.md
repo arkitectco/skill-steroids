@@ -1,11 +1,11 @@
 ---
-name: skill-botox-orchestrator
-description: Coordinates the Skill Botox loop Observe → Analyze → Govern → Decide → Act → Record. Loaded by root skill-botox entry. Use only via orchestrator step or explicit "run skill botox orchestrator".
+name: skill-steroids-orchestrator
+description: Coordinates the SkillSteroids loop Observe → Analyze → Govern → Decide → Act → Record. Loaded by root skill-steroids entry. Use only via orchestrator step or explicit "run skill steroids orchestrator".
 disable-model-invocation: true
 version: 1.2.0
 ---
 
-# Skill Botox Orchestrator
+# SkillSteroids Orchestrator
 
 ## Inputs
 
@@ -27,15 +27,15 @@ Persist all sections to `references/runs/<run-id>.md`.
 
 | Mode | Trigger phrases | Writes |
 |------|-----------------|--------|
-| **audit** (default) | "run skill botox", "skill botox audit", "skill library health" | None — reports only |
-| **mutate** | "skill botox mutate", "evolve skill X" (with approval) | One approved change max per run |
+| **audit** (default) | "run skill steroids", "skill steroids audit", "skill library health" | None — reports only |
+| **mutate** | "skill steroids mutate", "evolve skill X" (with approval) | One approved change max per run |
 
 ## Procedure
 
 ### Step 0 — Initialize
 
 1. Infer mode: `mutate` if user says mutate/evolve AND intends a write; else `audit`
-2. Infer scope from message (default: `full` for "run skill botox", `library` for "skill library health")
+2. Infer scope from message (default: `full` for "run skill steroids", `library` for "skill library health")
 3. Run: `bash scripts/doctor.sh` — if FAIL, stop and report missing deps
 4. Run: `bash scripts/init-run.sh <mode> <scope>` — capture run file path
 5. If mode=mutate and skill-architect missing AND any create proposal likely: warn user, restrict to evolve-only

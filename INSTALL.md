@@ -1,4 +1,4 @@
-# Install Skill Botox
+# Install SkillSteroids
 
 ## Quick install (macOS / Linux / WSL)
 
@@ -16,8 +16,8 @@ cd SkillBotox
 
 ## What install does
 
-1. Symlinks this repo to `~/.cursor/skills/skill-botox`
-2. Optionally symlinks to `~/.agents/skills/skill-botox` (set `SKILL_BOTOX_AGENTS=1`)
+1. Symlinks this repo to `~/.cursor/skills/skill-steroids`
+2. Optionally symlinks to `~/.agents/skills/skill-steroids` (set `SKILL_STEROIDS_AGENTS=1`)
 3. Runs `scripts/doctor.sh` and prints pass/fail
 
 ## Verify
@@ -28,7 +28,7 @@ cd SkillBotox
 ./evals/run-eval.sh
 ```
 
-In a new Cursor agent chat: **"run skill botox"**
+In a new Cursor agent chat: **"run skill steroids"**
 
 ## Uninstall
 
@@ -40,17 +40,17 @@ In a new Cursor agent chat: **"run skill botox"**
 
 | Variable | Default | Purpose |
 |----------|---------|---------|
-| `SKILL_BOTOX_HOME` | clone path | Override source directory |
-| `SKILL_BOTOX_CURSOR` | `~/.cursor/skills/skill-botox` | Cursor install target |
-| `SKILL_BOTOX_AGENTS` | unset | Set `1` to also install under `~/.agents/skills` |
+| `SKILL_STEROIDS_HOME` | clone path | Override source directory |
+| `SKILL_STEROIDS_CURSOR` | `~/.cursor/skills/skill-steroids` | Cursor install target |
+| `SKILL_STEROIDS_AGENTS` | unset | Set `1` to also install under `~/.agents/skills` |
 
 ## Agent support
 
 | Agent | Install path | Trigger |
 |-------|--------------|---------|
-| Cursor | `~/.cursor/skills/skill-botox/` | "run skill botox" |
-| Claude Code / agents dir | `~/.agents/skills/skill-botox/` | same |
-| Claude desktop skills | `~/.claude/skills/skill-botox/` | optional, `--with-claude` flag |
+| Cursor | `~/.cursor/skills/skill-steroids/` | "run skill steroids" |
+| Claude Code / agents dir | `~/.agents/skills/skill-steroids/` | same |
+| Claude desktop skills | `~/.claude/skills/skill-steroids/` | optional, `--with-claude` flag |
 
 ## External dependencies (recommended)
 

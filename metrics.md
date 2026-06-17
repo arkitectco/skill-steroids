@@ -1,4 +1,4 @@
-# Skill Botox Metrics & Signals
+# SkillSteroids Metrics & Signals
 
 Use these labels in Observer and Analyzer outputs. Numeric scores are optional in v1; qualitative High/Medium/Low is sufficient.
 

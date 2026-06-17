@@ -1,13 +1,13 @@
 ---
 name: skill-governor
-description: Enforces Skill Botox principles.md on proposed skill creates, modifications, merges, and prunes. Returns PASS, WARN, or BLOCK with cited violations. Use when reviewing any skill change, before applying Evolver output, or when the orchestrator reaches the Govern step.
+description: Enforces SkillSteroids principles.md on proposed skill creates, modifications, merges, and prunes. Returns PASS, WARN, or BLOCK with cited violations. Use when reviewing any skill change, before applying Evolver output, or when the orchestrator reaches the Govern step.
 disable-model-invocation: true
 version: 1.0.0
 ---
 
 # Skill Governor
 
-Quality gate for the Skill Botox framework. **No proposed change proceeds without a Governor verdict.**
+Quality gate for the SkillSteroids framework. **No proposed change proceeds without a Governor verdict.**
 
 ## When invoked
 
@@ -17,7 +17,7 @@ Quality gate for the Skill Botox framework. **No proposed change proceeds withou
 
 ## Required reads (in order)
 
-1. `principles.md` (repo root of skill-botox pack)
+1. `principles.md` (repo root of skill-steroids pack)
 2. Target SKILL.md or proposal text
 3. `references/output-schemas.md` → Governor Verdict section
 4. If reviewing structure/quality depth: `~/.agents/skills/skill-architect/SKILL.md` anti-bloat sections only

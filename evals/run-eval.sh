@@ -6,7 +6,7 @@ GOVERN="$ROOT/scripts/govern-check.sh"
 FAILURES=0
 TOTAL=0
 
-echo "Skill Botox Eval Harness"
+echo "SkillSteroids Eval Harness"
 echo "========================"
 
 rule_result() {

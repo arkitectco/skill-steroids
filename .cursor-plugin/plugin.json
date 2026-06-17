@@ -1,9 +1,7 @@
 {
-  "name": "skill-botox",
-  "version": "1.2.0",
-  "description": "Meta-framework for deliberate evolution of your AI agent skill library.",
-  "author": {
-    "name": "arkitectco"
-  },
-  "keywords": ["skills", "meta", "evolution", "governance"]
+  "name": "skill-steroids",
+  "version": "2.0.0",
+  "description": "Meta-framework and MicroSaaS for deliberate evolution of your AI agent skill library.",
+  "author": { "name": "arkitectco" },
+  "keywords": ["skills", "meta", "evolution", "governance", "saas"]
 }

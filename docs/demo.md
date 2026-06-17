@@ -1,4 +1,4 @@
-# 60-Second Skill Botox Demo
+# 60-Second SkillSteroids Demo
 
 Record with [asciinema](https://asciinema.org/) or terminal cast:
 

@@ -1,6 +1,6 @@
 ---
 name: skill-lineage
-description: Records approved skill mutations, versions, and lessons for Skill Botox. Appends to references/lineage/CHANGELOG.md. Use after orchestrator Act step or when user says "record skill lineage".
+description: Records approved skill mutations, versions, and lessons for SkillSteroids. Appends to references/lineage/CHANGELOG.md. Use after orchestrator Act step or when user says "record skill lineage".
 disable-model-invocation: true
 version: 1.0.0
 ---

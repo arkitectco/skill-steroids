@@ -1,4 +1,4 @@
-# Skill Botox Evolution Framework
+# SkillSteroids
 
 **A modular, markdown-first meta-framework for deliberately evolving your AI agent skill library over time.**
 
@@ -24,6 +24,14 @@ v1 delivers **audit + governed mutation**, not autonomous evolution. See [Framew
 
 **v1.2.0** — Phase B audit hardening: run persistence, dual metrics, semantic evals, audit/mutate modes.
 
+## Web app (MicroSaaS)
+
+```bash
+cd apps/web && npm run dev
+```
+
+Open http://localhost:3000 — landing + free skill audit studio.
+
 ## Key Principles
 
 - **Markdown-first** — Core logic lives in well-structured `SKILL.md` files.
@@ -35,7 +43,7 @@ v1 delivers **audit + governed mutation**, not autonomous evolution. See [Framew
 ## Repository Structure
 
 ```
-SkillBotox/
+SkillSteroids/
 ├── README.md
 ├── SKILL.md                    # Root orchestrator entry point
 ├── HANDOFFER.md                # Detailed context for future agents
@@ -44,7 +52,7 @@ SkillBotox/
 ├── metrics.md
 ├── docs/
 │   ├── FRAMEWORK_VISION.md
-│   └── PRD-skill-botox-Framework.md
+│   └── PRD-skill-steroids-Framework.md
 ├── templates/
 │   └── skill-template.md
 ├── orchestrator/
@@ -60,11 +68,11 @@ SkillBotox/
 
 ## Getting Started
 
-1. Read the [PRD](docs/PRD-skill-botox-Framework.md)
+1. Read the [PRD](docs/PRD-skill-steroids-Framework.md)
 2. Read the [Framework Vision](docs/FRAMEWORK_VISION.md)
 3. Review [HANDOFFER.md](HANDOFFER.md) for implementation guidance
 4. Install the skill pack (see below)
-5. In a new agent chat, ask **"skill botox audit"**
+5. In a new agent chat, ask **"skill steroids audit"**
 6. Validate with [falsification test](docs/demo-audit.md) before trusting proposals on your library
 
 Existing high-quality meta-skills (`skill-architect` and `skill-destroyer`) are delegated to, not duplicated.
@@ -78,7 +86,7 @@ Existing high-quality meta-skills (`skill-architect` and `skill-destroyer`) are 
 Or symlink manually:
 
 ```bash
-ln -sf "$(pwd)" ~/.cursor/skills/skill-botox
+ln -sf "$(pwd)" ~/.cursor/skills/skill-steroids
 ```
 
 Verify:
@@ -89,7 +97,7 @@ Verify:
 ./scripts/stats.sh
 ```
 
-In a new agent chat, ask **"skill botox audit"** (reports only) or **"skill botox mutate"** (one governed change).
+In a new agent chat, ask **"skill steroids audit"** (reports only) or **"skill steroids mutate"** (one governed change).
 
 ## Uninstall
 

@@ -1,6 +1,16 @@
 # Changelog
 
-All notable changes to Skill Botox are documented here.
+All notable changes to SkillSteroids are documented here.
+
+## [2.0.0] - 2026-06-16
+
+### Added
+- SkillSteroids MicroSaaS Phase 1: `apps/web` landing + free audit studio
+
+### Changed
+- Rebrand Skill Botox → SkillSteroids
+- Install path: `~/.cursor/skills/skill-steroids`
+- Agent triggers: `skill steroids audit` / `skill steroids mutate`
 
 ## [1.2.0] - 2026-06-16
 

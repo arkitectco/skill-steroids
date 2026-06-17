@@ -1,6 +1,6 @@
 ---
 name: bloated-fail
-description: Bloated fixture for P-03 eval. Use when testing skill botox bloat detection in eval harness.
+description: Bloated fixture for P-03 eval. Use when testing skill steroids bloat detection in eval harness.
 version: 0.0.1
 ---
 

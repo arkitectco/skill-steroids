@@ -1,6 +1,6 @@
 ---
 name: skill-analyzer
-description: Performs systemic analysis across the user's skill library for gaps, overlap, principle drift, and underperformance. Complements skill-destroyer with library-wide view. Use in Skill Botox Analyze step or when user asks "skill library health", "find skill gaps", "skill redundancy".
+description: Performs systemic analysis across the user's skill library for gaps, overlap, principle drift, and underperformance. Complements skill-destroyer with library-wide view. Use in SkillSteroids Analyze step or when user asks "skill library health", "find skill gaps", "skill redundancy".
 disable-model-invocation: true
 version: 1.0.0
 ---

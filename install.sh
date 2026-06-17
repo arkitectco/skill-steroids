@@ -2,17 +2,17 @@
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-CURSOR_TARGET="${SKILL_BOTOX_CURSOR:-$HOME/.cursor/skills/skill-botox}"
-AGENTS_TARGET="$HOME/.agents/skills/skill-botox"
-CLAUDE_TARGET="$HOME/.claude/skills/skill-botox"
-SOURCE="${SKILL_BOTOX_HOME:-$REPO_ROOT}"
+CURSOR_TARGET="${SKILL_STEROIDS_CURSOR:-$HOME/.cursor/skills/skill-steroids}"
+AGENTS_TARGET="$HOME/.agents/skills/skill-steroids"
+CLAUDE_TARGET="$HOME/.claude/skills/skill-steroids"
+SOURCE="${SKILL_STEROIDS_HOME:-$REPO_ROOT}"
 
 usage() {
   cat <<EOF
 Usage: ./install.sh [--uninstall] [--with-claude]
 
-  Installs Skill Botox skill pack via symlink.
-  Set SKILL_BOTOX_AGENTS=1 to also install to ~/.agents/skills/
+  Installs SkillSteroids skill pack via symlink.
+  Set SKILL_STEROIDS_AGENTS=1 to also install to ~/.agents/skills/
 EOF
 }
 
@@ -57,7 +57,7 @@ if [[ "$UNINSTALL" -eq 1 ]]; then
 fi
 
 link_dir "$CURSOR_TARGET"
-if [[ "${SKILL_BOTOX_AGENTS:-0}" == "1" ]]; then
+if [[ "${SKILL_STEROIDS_AGENTS:-0}" == "1" ]]; then
   link_dir "$AGENTS_TARGET"
 fi
 if [[ "$WITH_CLAUDE" -eq 1 ]]; then
@@ -69,4 +69,4 @@ if [[ -x "$SOURCE/scripts/doctor.sh" ]]; then
 fi
 
 echo ""
-echo "Done. In Cursor, try: run skill botox"
+echo "Done. In Cursor, try: run skill steroids"

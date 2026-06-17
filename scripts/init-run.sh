@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Create a new Skill Botox run artifact.
+# Create a new SkillSteroids run artifact.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -17,7 +17,7 @@ if [[ -f "$OUT" ]]; then
 fi
 
 cat > "$OUT" <<EOF
-# Skill Botox Run
+# SkillSteroids Run
 **Run ID:** $RUN_ID
 **Mode:** $MODE
 **Scope:** $SCOPE

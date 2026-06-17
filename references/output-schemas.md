@@ -1,4 +1,4 @@
-# Skill Botox Output Schemas
+# SkillSteroids Output Schemas
 
 All sub-skills MUST emit these sections so Orchestrator can compose results.
 
@@ -70,7 +70,7 @@ Template:
 
 Template (file: `references/runs/<run-id>.md`):
 
-    # Skill Botox Run
+    # SkillSteroids Run
     **Run ID:** YYYY-MM-DD-HHMM
     **Mode:** audit | mutate
     **Scope:** full | library | skill:<name>

@@ -1,4 +1,4 @@
-# Skill Botox Run Artifacts
+# SkillSteroids Run Artifacts
 
 Each orchestrator execution creates one file: `references/runs/<run-id>.md`.
 
