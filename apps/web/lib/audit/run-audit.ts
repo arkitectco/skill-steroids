@@ -2,7 +2,7 @@ import { execFile } from "child_process";
 import fs from "fs";
 import path from "path";
 import { promisify } from "util";
-import { getRepoRoot } from "@/lib/repo-root";
+import { getPackRoot } from "@/lib/pack/paths";
 import { aggregateVerdict, mergeRules, parseGovernOutput } from "./parse-govern";
 import type { AuditReport, SkillAuditResult } from "./types";
 import { cleanupExtractDir, extractSkillZip, findSkillMdFiles } from "./zip";
@@ -10,11 +10,11 @@ import { cleanupExtractDir, extractSkillZip, findSkillMdFiles } from "./zip";
 const execFileAsync = promisify(execFile);
 
 async function runScript(script: string, args: string[]): Promise<string> {
-  const repo = getRepoRoot();
-  const scriptPath = path.join(repo, "scripts", script);
+  const pack = getPackRoot();
+  const scriptPath = path.join(pack, "scripts", script);
   try {
     const { stdout, stderr } = await execFileAsync("bash", [scriptPath, ...args], {
-      cwd: repo,
+      cwd: pack,
       timeout: 30_000,
     });
     return `${stdout}\n${stderr}`;

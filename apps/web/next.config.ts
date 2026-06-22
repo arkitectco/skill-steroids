@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 import path from "path";
 
 const repoRoot = path.join(__dirname, "../..");
+const packRoot = path.join(repoRoot, "packages/skill-pack");
 
 const nextConfig: NextConfig = {
   experimental: {
@@ -9,6 +10,7 @@ const nextConfig: NextConfig = {
   },
   env: {
     SKILLSTEROIDS_REPO_ROOT: repoRoot,
+    SKILLSTEROIDS_PACK_ROOT: packRoot,
   },
 };
 

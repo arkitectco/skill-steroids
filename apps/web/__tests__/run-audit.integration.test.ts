@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import path from "path";
 import { runAuditOnSkillFile } from "@/lib/audit/run-audit";
-import { getRepoRoot } from "@/lib/repo-root";
+import { getRepoRoot } from "@/lib/pack/paths";
 
 const repo = getRepoRoot();
 
