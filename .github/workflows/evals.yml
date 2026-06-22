@@ -12,6 +12,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run doctor (pack-only in CI)
-        run: CI=true ./scripts/doctor.sh
+        run: CI=true ./packages/skill-pack/scripts/doctor.sh
       - name: Run eval harness
         run: ./evals/run-eval.sh
+
+  web-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm install
+      - run: npm run test --workspace=@skillsteroids/web
