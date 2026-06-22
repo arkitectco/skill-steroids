@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-GOVERN="$ROOT/scripts/govern-check.sh"
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+PACK_ROOT="$REPO_ROOT/packages/skill-pack"
+GOVERN="$PACK_ROOT/scripts/govern-check.sh"
 FAILURES=0
 TOTAL=0
 
@@ -24,7 +25,7 @@ assert_fixture() {
   local rule="$2"
   local want="$3"
   local extra="${4:-}"
-  local full="$ROOT/$path"
+  local full="$REPO_ROOT/$path"
 
   TOTAL=$((TOTAL + 1))
 
@@ -59,9 +60,9 @@ assert_fixture "evals/golden-violations/missing-io/SKILL.md" P-05 fail "--orches
 echo ""
 echo "Running semantic eval harness..."
 echo "------------------------------"
-chmod +x "$ROOT/evals/run-semantic-eval.sh" "$ROOT/scripts/govern-semantic-check.sh"
+chmod +x "$REPO_ROOT/evals/run-semantic-eval.sh" "$PACK_ROOT/scripts/govern-semantic-check.sh"
 SEMANTIC_EXIT=0
-"$ROOT/evals/run-semantic-eval.sh" || SEMANTIC_EXIT=$?
+"$REPO_ROOT/evals/run-semantic-eval.sh" || SEMANTIC_EXIT=$?
 
 echo ""
 if [[ "$FAILURES" -eq 0 && "$SEMANTIC_EXIT" -eq 0 ]]; then

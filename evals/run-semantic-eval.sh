@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-SEMANTIC="$ROOT/scripts/govern-semantic-check.sh"
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+PACK_ROOT="$REPO_ROOT/packages/skill-pack"
+SEMANTIC="$PACK_ROOT/scripts/govern-semantic-check.sh"
 FAILURES=0
 TOTAL=0
 
@@ -21,7 +22,7 @@ assert_fixture() {
   local rule="$2"
   local want="$3"
   shift 3
-  local full="$ROOT/$path"
+  local full="$REPO_ROOT/$path"
 
   TOTAL=$((TOTAL + 1))
 
