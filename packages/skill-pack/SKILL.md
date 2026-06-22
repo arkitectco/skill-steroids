@@ -35,6 +35,10 @@ Entry point for the skill library evolution loop.
 | Constitution | `principles.md` |
 | Metrics | `metrics.md` |
 
+## Monorepo note
+
+When cloned from GitHub, this pack lives at `packages/skill-pack/`. Eval fixtures and the web app live at repo root (`evals/`, `apps/web/`). `install.sh` symlinks this directory only.
+
 ## Human-in-the-loop
 
 v1 produces reports and proposals only. Ask explicit approval before creating, editing, or deleting any skill file.

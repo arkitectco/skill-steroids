@@ -2,7 +2,7 @@
 
 **A modular, markdown-first meta-framework for deliberately evolving your AI agent skill library over time.**
 
-**Headline metrics:** `./scripts/stats.sh` — structural health %, open gaps, unresolved BLOCKs (see [metrics.md](metrics.md)).
+**Headline metrics:** `./packages/skill-pack/scripts/stats.sh` — structural health %, open gaps, unresolved BLOCKs (see [metrics.md](packages/skill-pack/metrics.md)).
 
 **One-line install:**
 
@@ -44,26 +44,15 @@ Open http://localhost:3000 — landing + free skill audit studio.
 
 ```
 SkillSteroids/
-├── README.md
-├── SKILL.md                    # Root orchestrator entry point
-├── HANDOFFER.md                # Detailed context for future agents
-├── evolution.md
-├── principles.md
-├── metrics.md
+├── apps/web/                   # MicroSaaS (Next.js)
+├── packages/skill-pack/        # OSS agent pack (install target)
+│   ├── SKILL.md
+│   ├── orchestrator/ … lineage/
+│   ├── scripts/                # govern-check, doctor, stats
+│   └── references/
+├── evals/                      # CI golden fixtures
 ├── docs/
-│   ├── FRAMEWORK_VISION.md
-│   └── PRD-skill-steroids-Framework.md
-├── templates/
-│   └── skill-template.md
-├── orchestrator/
-├── observer/
-├── analyzer/
-├── evolver/
-├── governor/
-├── experimenter/
-├── lineage/
-├── references/
-└── scripts/                    # Lightweight helpers only (optional)
+└── install.sh                  # symlinks packages/skill-pack
 ```
 
 ## Getting Started
@@ -92,9 +81,9 @@ ln -sf "$(pwd)" ~/.cursor/skills/skill-steroids
 Verify:
 
 ```bash
-./scripts/doctor.sh
+./packages/skill-pack/scripts/doctor.sh
 ./evals/run-eval.sh
-./scripts/stats.sh
+./packages/skill-pack/scripts/stats.sh
 ```
 
 In a new agent chat, ask **"skill steroids audit"** (reports only) or **"skill steroids mutate"** (one governed change).

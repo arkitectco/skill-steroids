@@ -2,6 +2,12 @@
 
 All notable changes to SkillSteroids are documented here.
 
+## [2.1.0] - 2026-06-22
+
+### Changed
+- OSS skill pack moved to `packages/skill-pack/` — install symlinks pack only, not monorepo root
+- Eval harness and web audit reference pack scripts via `PACK_ROOT`
+
 ## [2.0.0] - 2026-06-16
 
 ### Added

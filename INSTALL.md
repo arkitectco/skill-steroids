@@ -16,15 +16,15 @@ cd SkillBotox
 
 ## What install does
 
-1. Symlinks this repo to `~/.cursor/skills/skill-steroids`
+1. Symlinks `packages/skill-pack` to `~/.cursor/skills/skill-steroids`
 2. Optionally symlinks to `~/.agents/skills/skill-steroids` (set `SKILL_STEROIDS_AGENTS=1`)
-3. Runs `scripts/doctor.sh` and prints pass/fail
+3. Runs `packages/skill-pack/scripts/doctor.sh` and prints pass/fail
 
 ## Verify
 
 ```bash
-./scripts/doctor.sh
-./scripts/stats.sh
+./packages/skill-pack/scripts/doctor.sh
+./packages/skill-pack/scripts/stats.sh
 ./evals/run-eval.sh
 ```
 
@@ -59,4 +59,4 @@ In a new Cursor agent chat: **"run skill steroids"**
 | skill-architect | `~/.agents/skills/skill-architect/SKILL.md` | Evolver create path |
 | skill-destroyer | install separately | Analyzer deep review |
 
-Run `./scripts/doctor.sh` to check. Fallback rubric ships in `references/skill-destroyer-rubric.md`.
+Run `./packages/skill-pack/scripts/doctor.sh` to check. Fallback rubric ships in `packages/skill-pack/references/skill-destroyer-rubric.md`.
