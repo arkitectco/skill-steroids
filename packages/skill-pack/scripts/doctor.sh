@@ -3,6 +3,7 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
 FAIL=0
 
 check() {
@@ -28,7 +29,7 @@ check "Root SKILL.md" "$ROOT/SKILL.md"
 check "Governor" "$ROOT/governor/SKILL.md"
 check "Orchestrator" "$ROOT/orchestrator/SKILL.md"
 check "Principles" "$ROOT/principles.md"
-check "Eval runner" "$ROOT/evals/run-eval.sh"
+check "Eval runner" "$REPO_ROOT/evals/run-eval.sh"
 check "skill-architect (recommended)" "$HOME/.agents/skills/skill-architect/SKILL.md" 0
 
 if [[ "${CI:-}" == "true" ]]; then
