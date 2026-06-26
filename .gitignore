@@ -4,3 +4,4 @@ apps/web/out/
 .env
 .env.local
 apps/web/.env.local
+docs/superpowers
