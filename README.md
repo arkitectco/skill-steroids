@@ -75,7 +75,7 @@ Existing high-quality meta-skills (`skill-architect` and `skill-destroyer`) are 
 Or symlink manually:
 
 ```bash
-ln -sf "$(pwd)" ~/.cursor/skills/skill-steroids
+ln -sfn "$(pwd)/packages/skill-pack" ~/.cursor/skills/skill-steroids
 ```
 
 Verify:
@@ -96,7 +96,9 @@ In a new agent chat, ask **"skill steroids audit"** (reports only) or **"skill s
 
 ## Plugin packaging
 
-For Cursor plugin distribution, see `.cursor-plugin/plugin.json`. Skills remain in this repo root; the manifest wraps the pack for marketplace or local plugin install.
+Install via Cursor, Claude, or Codex plugin marketplaces (see [PUBLISHING.md](docs/PUBLISHING.md)), or use `./install.sh` for symlink install.
+
+Manifests: `.cursor-plugin/`, `.claude-plugin/`, `.codex-plugin/` — all point at `packages/skill-pack/`.
 
 ## Scripts Policy
 

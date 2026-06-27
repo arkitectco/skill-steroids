@@ -1,5 +1,15 @@
 # Install SkillSteroids
 
+## Plugin install (recommended)
+
+| Platform | Install |
+|----------|---------|
+| Cursor | Install **skill-steroids** from Cursor marketplace, or open this repo as a local plugin |
+| Claude Code | `claude plugin install skill-steroids` (after adding marketplace — see [docs/PUBLISHING.md](docs/PUBLISHING.md)) |
+| Codex | Install from Codex plugin registry after publish, or `./install.sh --with-codex` |
+
+## Symlink install (OSS fallback)
+
 ## Quick install (macOS / Linux / WSL)
 
 ```bash
@@ -51,6 +61,7 @@ In a new Cursor agent chat: **"run skill steroids"**
 | Cursor | `~/.cursor/skills/skill-steroids/` | "run skill steroids" |
 | Claude Code / agents dir | `~/.agents/skills/skill-steroids/` | same |
 | Claude desktop skills | `~/.claude/skills/skill-steroids/` | optional, `--with-claude` flag |
+| Codex | `$CODEX_HOME/skills/skill-steroids/` or `~/.agents/skills/skill-steroids/` | same triggers |
 
 ## External dependencies (recommended)
 

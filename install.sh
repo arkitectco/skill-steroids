@@ -10,14 +10,19 @@ fi
 CURSOR_TARGET="${SKILL_STEROIDS_CURSOR:-$HOME/.cursor/skills/skill-steroids}"
 AGENTS_TARGET="$HOME/.agents/skills/skill-steroids"
 CLAUDE_TARGET="$HOME/.claude/skills/skill-steroids"
+CODEX_HOME="${CODEX_HOME:-$HOME/.codex}"
+CODEX_TARGET="$CODEX_HOME/skills/skill-steroids"
 SOURCE="${SKILL_STEROIDS_HOME:-$PACK_DIR}"
 
 usage() {
   cat <<EOF
-Usage: ./install.sh [--uninstall] [--with-claude]
+Usage: ./install.sh [--uninstall] [--with-claude] [--with-codex]
 
   Installs SkillSteroids skill pack via symlink.
   Set SKILL_STEROIDS_AGENTS=1 to also install to ~/.agents/skills/
+
+  --with-claude   Also symlink to ~/.claude/skills/skill-steroids
+  --with-codex    Also symlink to \$CODEX_HOME/skills/skill-steroids (default: ~/.codex)
 EOF
 }
 
@@ -45,10 +50,12 @@ unlink_dir() {
 
 UNINSTALL=0
 WITH_CLAUDE=0
+WITH_CODEX=0
 for arg in "$@"; do
   case "$arg" in
     --uninstall) UNINSTALL=1 ;;
     --with-claude) WITH_CLAUDE=1 ;;
+    --with-codex) WITH_CODEX=1 ;;
     -h|--help) usage; exit 0 ;;
     *) echo "Unknown flag: $arg" >&2; usage; exit 1 ;;
   esac
@@ -58,6 +65,7 @@ if [[ "$UNINSTALL" -eq 1 ]]; then
   unlink_dir "$CURSOR_TARGET"
   unlink_dir "$AGENTS_TARGET"
   unlink_dir "$CLAUDE_TARGET"
+  unlink_dir "$CODEX_TARGET"
   exit 0
 fi
 
@@ -67,6 +75,9 @@ if [[ "${SKILL_STEROIDS_AGENTS:-0}" == "1" ]]; then
 fi
 if [[ "$WITH_CLAUDE" -eq 1 ]]; then
   link_dir "$CLAUDE_TARGET"
+fi
+if [[ "$WITH_CODEX" -eq 1 ]]; then
+  link_dir "$CODEX_TARGET"
 fi
 
 if [[ -x "$SOURCE/scripts/doctor.sh" ]]; then

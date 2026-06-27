@@ -2,6 +2,16 @@
 
 All notable changes to SkillSteroids are documented here.
 
+## [2.2.0] - 2026-06-24
+
+### Added
+- Multi-platform plugin manifests (Cursor, Claude, Codex) pointing at `packages/skill-pack/`
+- `scripts/bump-plugin-version.sh`, `scripts/sync-to-codex-plugin.sh`, `scripts/verify-plugin-manifests.sh`
+- `docs/PUBLISHING.md` release checklist
+
+### Changed
+- Plugin-first install docs; `install.sh` adds `--with-codex` for `$CODEX_HOME/skills/`
+
 ## [2.1.0] - 2026-06-22
 
 ### Changed
