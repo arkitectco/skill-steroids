@@ -1,0 +1,20 @@
+{
+  "name": "skill-steroids-dev",
+  "description": "SkillSteroids — governed skill library evolution",
+  "owner": {
+    "name": "arkitectco",
+    "url": "https://github.com/arkitectco"
+  },
+  "plugins": [
+    {
+      "name": "skill-steroids",
+      "description": "Governed audit and mutation for your AI agent skill library",
+      "version": "2.2.0",
+      "source": "./",
+      "author": {
+        "name": "arkitectco",
+        "url": "https://github.com/arkitectco"
+      }
+    }
+  ]
+}
