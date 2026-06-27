@@ -23,7 +23,7 @@ check_manifest "Cursor" "$ROOT/.cursor-plugin/plugin.json"
 check_manifest "Claude" "$ROOT/.claude-plugin/plugin.json"
 check_manifest "Codex" "$ROOT/.codex-plugin/plugin.json"
 
-./scripts/bump-plugin-version.sh --check || FAIL=1
+"$ROOT/scripts/bump-plugin-version.sh" --check || FAIL=1
 
 if [[ "$FAIL" -eq 0 ]]; then
   echo "Plugin manifests: PASS"

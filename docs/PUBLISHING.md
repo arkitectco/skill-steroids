@@ -15,7 +15,7 @@ Release checklist for publishing SkillSteroids to Cursor, Claude, and Codex plug
 ./scripts/bump-plugin-version.sh 2.2.0
 ```
 
-This updates the version field in `.cursor-plugin/plugin.json`, `.claude-plugin/manifest.json`, and `.codex-plugin/manifest.json`.
+This updates version across all declared files: `.cursor-plugin/plugin.json`, `.claude-plugin/plugin.json`, `.codex-plugin/plugin.json`, `.claude-plugin/marketplace.json`, and `packages/skill-pack/package.json`.
 
 ## 2. Verify manifests and health
 
