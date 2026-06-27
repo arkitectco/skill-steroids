@@ -32,6 +32,12 @@ check "Principles" "$ROOT/principles.md"
 check "Eval runner" "$REPO_ROOT/evals/run-eval.sh"
 check "skill-architect (recommended)" "$HOME/.agents/skills/skill-architect/SKILL.md" 0
 
+if [[ -f "$ROOT/using-skill-steroids/SKILL.md" ]]; then
+  echo "✓ Bootstrap: $ROOT/using-skill-steroids/SKILL.md"
+else
+  echo "⚠ Bootstrap skill missing (plugin hooks will inject nothing useful)"
+fi
+
 if [[ "${CI:-}" == "true" ]]; then
   echo "ℹ CI mode: skipping Cursor install check"
 elif [[ -L "$HOME/.cursor/skills/skill-steroids" ]] || [[ -d "$HOME/.cursor/skills/skill-steroids" ]]; then
