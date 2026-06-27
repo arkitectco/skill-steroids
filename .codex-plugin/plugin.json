@@ -1,0 +1,39 @@
+{
+  "name": "skill-steroids",
+  "version": "2.2.0",
+  "description": "Meta-framework for deliberate evolution of your AI agent skill library — audit, govern, and mutate skills systematically.",
+  "author": {
+    "name": "arkitectco",
+    "url": "https://github.com/arkitectco"
+  },
+  "homepage": "https://github.com/arkitectco/SkillBotox",
+  "repository": "https://github.com/arkitectco/SkillBotox",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "governance",
+    "audit",
+    "evolution",
+    "meta",
+    "agent"
+  ],
+  "skills": "../packages/skill-pack/",
+  "interface": {
+    "displayName": "SkillSteroids",
+    "shortDescription": "Governed audit and mutation for agent skill libraries",
+    "longDescription": "Run skill steroids audit for library health reports, or skill steroids mutate for one governed change. Includes Governor, Orchestrator, Evolver, and lineage tracking.",
+    "developerName": "arkitectco",
+    "category": "Coding",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "run skill steroids audit",
+      "skill steroids audit my skills library",
+      "skill steroids mutate"
+    ],
+    "websiteURL": "https://github.com/arkitectco/SkillBotox"
+  }
+}
