@@ -9,7 +9,7 @@
     {
       "name": "skill-steroids",
       "description": "Governed audit and mutation for your AI agent skill library",
-      "version": "2.2.0",
+      "version": "2.3.0",
       "source": "./",
       "author": {
         "name": "arkitectco",

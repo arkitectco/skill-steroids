@@ -23,9 +23,12 @@ This updates version across all declared files: `.cursor-plugin/plugin.json`, `.
 ./scripts/verify-plugin-manifests.sh
 ./packages/skill-pack/scripts/doctor.sh
 ./evals/run-eval.sh
+./tests/hooks/test-session-start.sh
 ```
 
 All checks must pass before proceeding.
+
+Hooks ship inside `packages/skill-pack/` and sync to Codex automatically.
 
 ## 3. Cursor marketplace
 

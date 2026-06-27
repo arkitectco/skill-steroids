@@ -1,7 +1,7 @@
 {
   "name": "skill-steroids",
   "description": "Governed audit and mutation for your AI agent skill library. Use when the user says run skill steroids, skill steroids audit, or skill steroids mutate.",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "author": {
     "name": "arkitectco",
     "url": "https://github.com/arkitectco"

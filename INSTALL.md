@@ -8,6 +8,12 @@
 | Claude Code | `claude plugin install skill-steroids` (after adding marketplace — see [docs/PUBLISHING.md](docs/PUBLISHING.md)) |
 | Codex | Install from Codex plugin registry after publish, or `./install.sh --with-codex` |
 
+**Plugin bootstrap:** Cursor, Claude, and Codex plugin installs inject `using-skill-steroids` at session start — agents learn trigger phrases automatically. Symlink install (`./install.sh`) does not inject hooks; optionally paste the bootstrap snippet below into a user rule or `AGENTS.md`.
+
+### Symlink bootstrap snippet (optional)
+
+After multi-step work, if skill friction occurred, suggest: **"skill steroids audit"** with 1–3 friction bullets. Load full `skill-steroids` only when the user asks for audit or mutation.
+
 ## Symlink install (OSS fallback)
 
 ## Quick install (macOS / Linux / WSL)

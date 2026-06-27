@@ -2,6 +2,17 @@
 
 All notable changes to SkillSteroids are documented here.
 
+## [2.3.0] - 2026-06-27
+
+### Added
+- `using-skill-steroids` session bootstrap skill (triggers + friction nudge)
+- SessionStart hooks for Cursor, Claude, and Codex (`packages/skill-pack/hooks/`)
+- Hook smoke tests (`tests/hooks/test-session-start.sh`)
+
+### Changed
+- Plugin manifests include `hooks` field pointing at pack hooks
+- Plugin installs inject bootstrap every session; symlink install unchanged
+
 ## [2.2.0] - 2026-06-24
 
 ### Added

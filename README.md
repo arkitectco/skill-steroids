@@ -100,6 +100,8 @@ Install via Cursor, Claude, or Codex plugin marketplaces (see [PUBLISHING.md](do
 
 Manifests: `.cursor-plugin/`, `.claude-plugin/`, `.codex-plugin/` — all point at `packages/skill-pack/`.
 
+Plugin installs inject `using-skill-steroids` at session start (SessionStart hooks). The full audit/mutate loop runs only when you ask.
+
 ## Scripts Policy
 
 This framework prefers pure `SKILL.md` files. Scripts are only added when they provide significant practical value that markdown cannot easily deliver (e.g. scanning many files, logging, or validation). See the PRD for details.
