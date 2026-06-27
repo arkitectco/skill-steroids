@@ -18,6 +18,7 @@
     "agent"
   ],
   "skills": "../packages/skill-pack/",
+  "hooks": "../packages/skill-pack/hooks/hooks-codex.json",
   "interface": {
     "displayName": "SkillSteroids",
     "shortDescription": "Governed audit and mutation for agent skill libraries",

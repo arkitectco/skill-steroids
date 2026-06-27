@@ -19,9 +19,41 @@ check_manifest() {
   fi
 }
 
+check_hooks() {
+  local label="$1"
+  local manifest="$2"
+  local hooks_rel
+  hooks_rel="$(jq -r '.hooks // empty' "$manifest")"
+  if [[ -z "$hooks_rel" ]]; then
+    echo "✗ $label: missing hooks field"
+    FAIL=1
+    return
+  fi
+  local hooks_file
+  hooks_file="$(cd "$(dirname "$manifest")" && cd "$(dirname "$hooks_rel")" && pwd)/$(basename "$hooks_rel")"
+  if [[ -f "$hooks_file" ]]; then
+    echo "✓ $label hooks → $hooks_file"
+  else
+    echo "✗ $label: hooks not found at $hooks_file"
+    FAIL=1
+  fi
+}
+
+PACK="$ROOT/packages/skill-pack"
+if [[ -f "$PACK/using-skill-steroids/SKILL.md" ]]; then
+  echo "✓ bootstrap → $PACK/using-skill-steroids/SKILL.md"
+else
+  echo "✗ bootstrap skill missing"
+  FAIL=1
+fi
+
 check_manifest "Cursor" "$ROOT/.cursor-plugin/plugin.json"
 check_manifest "Claude" "$ROOT/.claude-plugin/plugin.json"
 check_manifest "Codex" "$ROOT/.codex-plugin/plugin.json"
+
+check_hooks "Cursor" "$ROOT/.cursor-plugin/plugin.json"
+check_hooks "Claude" "$ROOT/.claude-plugin/plugin.json"
+check_hooks "Codex" "$ROOT/.codex-plugin/plugin.json"
 
 "$ROOT/scripts/bump-plugin-version.sh" --check || FAIL=1
 

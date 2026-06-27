@@ -15,6 +15,8 @@ jobs:
         run: CI=true ./packages/skill-pack/scripts/doctor.sh
       - name: Verify plugin manifests
         run: ./scripts/verify-plugin-manifests.sh
+      - name: Test SessionStart hooks
+        run: ./tests/hooks/test-session-start.sh
       - name: Run eval harness
         run: ./evals/run-eval.sh
 
