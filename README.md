@@ -2,7 +2,7 @@
 
 **A modular, markdown-first meta-framework for deliberately evolving your AI agent skill library over time.**
 
-**Headline metrics:** `./packages/skill-pack/scripts/stats.sh` — structural health %, open gaps, unresolved BLOCKs (see [metrics.md](packages/skill-pack/metrics.md)).
+**Headline metrics:** `./plugin/skills/skill-steroids/scripts/stats.sh` — structural health %, open gaps, unresolved BLOCKs (see [metrics.md](plugin/skills/skill-steroids/metrics.md)).
 
 **One-line install:**
 
@@ -45,14 +45,13 @@ Open http://localhost:3000 — landing + free skill audit studio.
 ```
 SkillSteroids/
 ├── apps/web/                   # MicroSaaS (Next.js)
-├── packages/skill-pack/        # OSS agent pack (install target)
-│   ├── SKILL.md
-│   ├── orchestrator/ … lineage/
-│   ├── scripts/                # govern-check, doctor, stats
-│   └── references/
+├── plugin/                     # Marketplace install surface
+│   ├── skills/skill-steroids/  # Skill pack (orchestrator → lineage)
+│   ├── commands/               # /skill-steroids:audit, :mutate
+│   └── hooks/
 ├── evals/                      # CI golden fixtures
 ├── docs/
-└── install.sh                  # symlinks packages/skill-pack
+└── install.sh                  # symlink fallback → plugin/skills/skill-steroids
 ```
 
 ## Getting Started
@@ -75,15 +74,15 @@ Existing high-quality meta-skills (`skill-architect` and `skill-destroyer`) are 
 Or symlink manually:
 
 ```bash
-ln -sfn "$(pwd)/packages/skill-pack" ~/.cursor/skills/skill-steroids
+ln -sfn "$(pwd)/plugin/skills/skill-steroids" ~/.cursor/skills/skill-steroids
 ```
 
 Verify:
 
 ```bash
-./packages/skill-pack/scripts/doctor.sh
+./plugin/skills/skill-steroids/scripts/doctor.sh
 ./evals/run-eval.sh
-./packages/skill-pack/scripts/stats.sh
+./plugin/skills/skill-steroids/scripts/stats.sh
 ```
 
 In a new agent chat, ask **"skill steroids audit"** (reports only) or **"skill steroids mutate"** (one governed change).
@@ -96,9 +95,7 @@ In a new agent chat, ask **"skill steroids audit"** (reports only) or **"skill s
 
 ## Plugin packaging
 
-Install via Cursor, Claude, or Codex plugin marketplaces (see [PUBLISHING.md](docs/PUBLISHING.md)), or use `./install.sh` for symlink install.
-
-Manifests: `.cursor-plugin/`, `.claude-plugin/`, `.codex-plugin/` — all point at `packages/skill-pack/`.
+Primary install is the plugin marketplace (`./plugin`). Grok: `grok plugin install arkitectco/SkillBotox#plugin --trust`. Use `./install.sh` as the symlink fallback onto `plugin/skills/skill-steroids`. See [PUBLISHING.md](docs/PUBLISHING.md).
 
 Plugin installs inject `using-skill-steroids` at session start (SessionStart hooks). The full audit/mutate loop runs only when you ask.
 

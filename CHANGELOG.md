@@ -2,6 +2,15 @@
 
 All notable changes to SkillSteroids are documented here.
 
+## [Unreleased]
+
+### Changed
+- Collapsed the OSS skill pack into `plugin/skills/skill-steroids` (removed the `packages/skill-pack` dual tree)
+- Slim `plugin/` install surface (Impeccable-style): `skills/skill-steroids`, `commands/`, `hooks/`, `.claude-plugin` + `.grok-plugin`
+- Claude marketplace `source` is `./plugin` (no longer the monorepo root)
+- Hook commands resolve via `${CLAUDE_PLUGIN_ROOT}` inside the plugin package
+- Entry skill is user-invocable (`/skill-steroids [audit|mutate]`); bootstrap skill is not
+
 ## [2.3.0] - 2026-06-27
 
 ### Added
