@@ -2,10 +2,10 @@
 #
 # sync-to-codex-plugin.sh
 #
-# Sync the skill-pack from this SkillBotox checkout →
+# Sync plugin/skills/skill-steroids from this SkillBotox checkout →
 # arkitectco/openai-codex-plugins (plugins/skill-steroids/).
 #
-# Builds a pack-only temp source dir from packages/skill-pack/ +
+# Builds a skill-only temp source dir from plugin/skills/skill-steroids/ +
 # .codex-plugin/plugin.json (with skills path rewritten to "./"),
 # then rsyncs that into the fork, commits, pushes a sync branch,
 # and opens a PR.
@@ -20,6 +20,8 @@
 #   ./scripts/sync-to-codex-plugin.sh --local PATH       # existing fork checkout
 #   ./scripts/sync-to-codex-plugin.sh --base BRANCH      # default: main
 #   ./scripts/sync-to-codex-plugin.sh --bootstrap        # create dest dir if missing
+#
+# Source: plugin/skills/skill-steroids/ (flattened to Codex plugin root).
 #
 # Bootstrap mode: skips the "plugin must exist on base" requirement and
 # creates plugins/skill-steroids/ when absent.
@@ -83,8 +85,8 @@ gh auth status >/dev/null 2>&1 || die "gh not authenticated — run 'gh auth log
   || die "upstream '$UPSTREAM' is not a git checkout"
 [[ -f "$UPSTREAM/.codex-plugin/plugin.json" ]] \
   || die "Codex manifest missing at $UPSTREAM/.codex-plugin/plugin.json"
-[[ -d "$UPSTREAM/packages/skill-pack" ]] \
-  || die "skill-pack not found at $UPSTREAM/packages/skill-pack"
+[[ -d "$UPSTREAM/plugin/skills/skill-steroids" ]] \
+  || die "skill not found at $UPSTREAM/plugin/skills/skill-steroids"
 
 # Read version from the Codex manifest
 UPSTREAM_VERSION="$(python3 -c \
@@ -119,8 +121,8 @@ fi
 # =============================================================================
 # Build pack-only SYNC_SOURCE
 # =============================================================================
-# Source is built from packages/skill-pack/ (not the whole monorepo), so no
-# EXCLUDES array is needed — everything in skill-pack is intentional.
+# Source is built from plugin/skills/skill-steroids/ (not the whole monorepo),
+# so no EXCLUDES array is needed — everything in the skill dir is intentional.
 
 CLEANUP_DIR=""
 cleanup() {
@@ -134,8 +136,8 @@ prepare_sync_source() {
   rm -rf "$SYNC_SOURCE"
   mkdir -p "$SYNC_SOURCE"
 
-  # Flatten skill-pack to plugin root
-  rsync -a "$UPSTREAM/packages/skill-pack/" "$SYNC_SOURCE/"
+  # Flatten skill dir to Codex plugin root
+  rsync -a "$UPSTREAM/plugin/skills/skill-steroids/" "$SYNC_SOURCE/"
 
   # Copy Codex manifest and rewrite skills path to "./" (pack is at root)
   mkdir -p "$SYNC_SOURCE/.codex-plugin"
@@ -274,7 +276,7 @@ if [[ $BOOTSTRAP -eq 1 ]]; then
   COMMIT_TITLE="bootstrap skill-steroids v$UPSTREAM_VERSION from upstream main @ $UPSTREAM_SHORT"
   PR_BODY="Initial bootstrap of the skill-steroids plugin from upstream \`main\` @ \`$UPSTREAM_SHORT\` (v$UPSTREAM_VERSION).
 
-Creates \`$DEST_REL/\` by flattening \`packages/skill-pack/\` to the plugin root and copying \`.codex-plugin/plugin.json\` (with \`\"skills\"\` rewritten to \`\"./\"\`).
+Creates \`$DEST_REL/\` by flattening \`plugin/skills/skill-steroids/\` to the plugin root and copying \`.codex-plugin/plugin.json\` (with \`\"skills\"\` rewritten to \`\"./\"\`).
 
 Run via: \`scripts/sync-to-codex-plugin.sh --bootstrap\`
 Upstream commit: $UPSTREAM_REPO_URL/commit/$UPSTREAM_SHA
@@ -284,7 +286,7 @@ else
   COMMIT_TITLE="sync skill-steroids v$UPSTREAM_VERSION from upstream main @ $UPSTREAM_SHORT"
   PR_BODY="Automated sync from SkillBotox upstream \`main\` @ \`$UPSTREAM_SHORT\` (v$UPSTREAM_VERSION).
 
-Flattens \`packages/skill-pack/\` to \`$DEST_REL/\` and copies the Codex manifest with skills path rewritten to \`\"./\"\`.
+Flattens \`plugin/skills/skill-steroids/\` to \`$DEST_REL/\` and copies the Codex manifest with skills path rewritten to \`\"./\"\`.
 
 Run via: \`scripts/sync-to-codex-plugin.sh\`
 Upstream commit: $UPSTREAM_REPO_URL/commit/$UPSTREAM_SHA

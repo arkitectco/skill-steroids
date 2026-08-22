@@ -17,8 +17,8 @@
     "meta",
     "agent"
   ],
-  "skills": "../packages/skill-pack/",
-  "hooks": "../packages/skill-pack/hooks/hooks-codex.json",
+  "skills": "../plugin/skills/skill-steroids/",
+  "hooks": "../plugin/skills/skill-steroids/hooks/hooks-codex.json",
   "interface": {
     "displayName": "SkillSteroids",
     "shortDescription": "Governed audit and mutation for agent skill libraries",
