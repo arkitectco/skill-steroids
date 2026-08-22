@@ -1,4 +1,4 @@
-/** Relative paths under packages/skill-pack/ for agent embedding */
+/** Relative paths under plugin/skills/skill-steroids/ for agent embedding */
 export const PACK_MODULES = [
   "SKILL.md",
   "orchestrator/SKILL.md",
