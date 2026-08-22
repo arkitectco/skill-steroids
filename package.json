@@ -2,12 +2,12 @@
   "name": "skillsteroids",
   "private": true,
   "version": "2.0.0",
-  "workspaces": ["apps/*", "packages/*"],
+  "workspaces": ["apps/*"],
   "scripts": {
     "dev": "npm run dev --workspace=@skillsteroids/web",
     "build": "npm run build --workspace=@skillsteroids/web",
     "test:web": "npm run test --workspace=@skillsteroids/web",
     "evals": "./evals/run-eval.sh",
-    "doctor": "./packages/skill-pack/scripts/doctor.sh"
+    "doctor": "./plugin/skills/skill-steroids/scripts/doctor.sh"
   }
 }

@@ -4,7 +4,19 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd -P "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-REPO_ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"
+# Walk up from SCRIPT_DIR until evals/run-eval.sh exists (checkout or install symlink).
+REPO_ROOT=""
+_dir="$SCRIPT_DIR"
+while [[ -n "$_dir" && "$_dir" != "/" ]]; do
+  if [[ -f "$_dir/evals/run-eval.sh" ]]; then
+    REPO_ROOT="$_dir"
+    break
+  fi
+  _parent="$(cd "$_dir/.." && pwd)"
+  [[ "$_parent" == "$_dir" ]] && break
+  _dir="$_parent"
+done
+unset _dir _parent
 FAIL=0
 
 check() {

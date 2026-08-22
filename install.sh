@@ -2,9 +2,9 @@
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PACK_DIR="$REPO_ROOT/packages/skill-pack"
+PACK_DIR="$REPO_ROOT/plugin/skills/skill-steroids"
 if [[ ! -f "$PACK_DIR/SKILL.md" ]]; then
-  echo "ERROR: packages/skill-pack not found. Run from SkillSteroids repo root." >&2
+  echo "ERROR: plugin/skills/skill-steroids not found. Run from SkillSteroids repo root." >&2
   exit 1
 fi
 CURSOR_TARGET="${SKILL_STEROIDS_CURSOR:-$HOME/.cursor/skills/skill-steroids}"
