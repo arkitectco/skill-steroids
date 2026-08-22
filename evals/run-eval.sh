@@ -2,7 +2,7 @@
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-PACK_ROOT="$REPO_ROOT/packages/skill-pack"
+PACK_ROOT="$REPO_ROOT/plugin/skills/skill-steroids"
 GOVERN="$PACK_ROOT/scripts/govern-check.sh"
 FAILURES=0
 TOTAL=0

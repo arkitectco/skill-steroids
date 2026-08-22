@@ -3,7 +3,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
-PACK_ROOT="$REPO_ROOT/packages/skill-pack"
+PACK_ROOT="$REPO_ROOT/plugin/skills/skill-steroids"
 HOOK="$PACK_ROOT/hooks/session-start"
 CODEX_HOOK="$PACK_ROOT/hooks/session-start-codex"
 WRAPPER="$PACK_ROOT/hooks/run-hook.cmd"

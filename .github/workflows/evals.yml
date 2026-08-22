@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run doctor (pack-only in CI)
-        run: CI=true ./packages/skill-pack/scripts/doctor.sh
+        run: CI=true ./plugin/skills/skill-steroids/scripts/doctor.sh
       - name: Verify plugin manifests
         run: ./scripts/verify-plugin-manifests.sh
       - name: Test SessionStart hooks
