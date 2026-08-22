@@ -1,6 +1,9 @@
 ---
 name: your-skill-name
-description: Third-person WHAT + WHEN triggers. Use when user mentions ...
+description: One sentence, WHAT + WHEN triggers, ≤150 chars. No synonym-stacking triggers —
+  each phrase must cover a case the others don't. Example: "Defensive Bash scripting for Linux:
+  safe foundations, argument parsing, ShellCheck compliance. Use when writing bash scripts,
+  cron jobs, or CLI tools." (P-02: WARN >300 chars, BLOCK >500)
 disable-model-invocation: true
 version: 0.1.0
 ---

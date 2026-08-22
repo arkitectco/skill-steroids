@@ -1,6 +1,8 @@
 ---
 name: using-skill-steroids
 description: Establishes when and how to invoke SkillSteroids for skill library audit or mutation. Injected at session start via plugin hook — not for manual file reads.
+user-invocable: false
+disable-model-invocation: true
 ---
 
 <SUBAGENT-STOP>

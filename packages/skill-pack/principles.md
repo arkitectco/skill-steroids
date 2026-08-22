@@ -20,7 +20,7 @@ The Governor enforces these rules on every proposed skill create, modify, merge,
 | ID | Rule | BLOCK if |
 |----|------|----------|
 | P-01 | Single responsibility | Skill handles 2+ unrelated domains without router pattern |
-| P-02 | Trigger-rich description | Description missing WHEN triggers or under 20 chars |
+| P-02 | Trigger-rich description | Description missing WHEN triggers, under 20 chars, or over 500 chars |
 | P-03 | No bloat | SKILL.md body > 500 lines without references/ split |
 | P-04 | No duplication | Re-implements skill-architect templates or destroyer rubric |
 | P-05 | Explicit I/O | Missing Input/Output section for orchestrator skills |
@@ -34,6 +34,13 @@ The Governor enforces these rules on every proposed skill create, modify, merge,
 - Monolithic meta-skills that embed the full evolution loop
 - Auto-invocation (`disable-model-invocation` omitted) on meta/framework skills
 - Orphan skills with no trigger phrases and no orchestrator reference
+- Description bloat: every skill's `description` is loaded into context on every session,
+  regardless of whether it fires. Length there is pure recurring tax, unlike SKILL.md body
+  (loaded once, on trigger). One dense sentence beats three loose ones.
+  - Target: ≤150 chars WHAT + WHEN in one sentence. WARN at 300, BLOCK at 500 (P-02).
+  - Redundant trigger phrases are the usual bloat source — "review, audit, check, or inspect"
+    collapses to "review"; list only phrases that are NOT synonyms of each other.
+  - A long description is not more trigger-rich, it's more expensive. Cut, don't append.
 
 ## Amendment Process
 

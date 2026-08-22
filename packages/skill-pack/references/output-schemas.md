@@ -65,6 +65,8 @@ Template:
     **Parent version:** x.y.z → **New version:** x.y.z
     **Signals resolved:** F-xx, gap-y
     **Lesson:** one sentence
+    **Skill-local log:** <target-skill-dir>/CHANGELOG.md | unresolved — index-only
+    **Snapshot:** <target-skill-dir>/.lineage/snapshots/<run-id>.md | none — create action
 
 ## Run Artifact
 

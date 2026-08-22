@@ -2,8 +2,9 @@
 # Verify SkillSteroids install and recommended dependencies.
 set -euo pipefail
 
-ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
+SCRIPT_DIR="$(cd -P "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"
 FAIL=0
 
 check() {
@@ -29,7 +30,7 @@ check "Root SKILL.md" "$ROOT/SKILL.md"
 check "Governor" "$ROOT/governor/SKILL.md"
 check "Orchestrator" "$ROOT/orchestrator/SKILL.md"
 check "Principles" "$ROOT/principles.md"
-check "Eval runner" "$REPO_ROOT/evals/run-eval.sh"
+check "Eval runner (used by Experimenter only)" "$REPO_ROOT/evals/run-eval.sh" 0
 check "skill-architect (recommended)" "$HOME/.agents/skills/skill-architect/SKILL.md" 0
 
 if [[ -f "$ROOT/using-skill-steroids/SKILL.md" ]]; then
@@ -48,8 +49,8 @@ else
 fi
 
 if [[ -x "$ROOT/scripts/skill-inventory.sh" ]]; then
-  COUNT="$("$ROOT/scripts/skill-inventory.sh" 2>/dev/null | grep '/SKILL.md$' | wc -l | tr -d ' ')"
-  echo "ℹ Skills discovered: $COUNT"
+  COUNT="$("$ROOT/scripts/skill-inventory.sh" 2>/dev/null | grep -c '/SKILL.md$' || true)"
+  echo "ℹ Skills discovered: ${COUNT:-0}"
 fi
 
 echo ""

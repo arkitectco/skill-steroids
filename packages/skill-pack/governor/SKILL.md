@@ -37,6 +37,8 @@ Quality gate for the SkillSteroids framework. **No proposed change proceeds with
 
 - Missing triggers, bloat, duplication → BLOCK
 - Borderline length (450–500 lines) → WARN with split recommendation
+- Description over 500 chars → BLOCK (P-02); over 300 → WARN with a rewritten, trimmed
+  description in the verdict, not just a flag. Cut redundant trigger synonyms first.
 - Compatibility note missing for Superpowers overlap → WARN
 
 ## Output
