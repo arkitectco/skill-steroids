@@ -1,6 +1,6 @@
 # SkillSteroids Framework — Vision
 
-**Framework Name**: `skill-steroids` (suggested)
+**Framework Name**: `skill-steroids`
 
 ## Core Idea
 
