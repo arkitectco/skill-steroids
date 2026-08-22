@@ -1,6 +1,9 @@
 {
-  "name": "skill-steroids-dev",
-  "description": "SkillSteroids — governed skill library evolution",
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "skill-steroids",
+  "metadata": {
+    "description": "Governed audit and mutation for AI agent skill libraries. Orchestrator, Governor, Evolver, and lineage."
+  },
   "owner": {
     "name": "arkitectco",
     "url": "https://github.com/arkitectco"
@@ -8,13 +11,22 @@
   "plugins": [
     {
       "name": "skill-steroids",
-      "description": "Governed audit and mutation for your AI agent skill library",
+      "description": "Governed audit and mutation for your AI agent skill library. Use /skill-steroids audit or /skill-steroids mutate.",
       "version": "2.3.0",
-      "source": "./",
       "author": {
         "name": "arkitectco",
         "url": "https://github.com/arkitectco"
-      }
+      },
+      "source": "./plugin",
+      "category": "development",
+      "homepage": "https://github.com/arkitectco/SkillBotox",
+      "tags": [
+        "skills",
+        "governance",
+        "audit",
+        "evolution",
+        "hooks"
+      ]
     }
   ]
 }

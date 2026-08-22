@@ -1,0 +1,23 @@
+{
+  "name": "skill-steroids",
+  "description": "Governed audit and mutation for your AI agent skill library. Use /skill-steroids audit or /skill-steroids mutate.",
+  "version": "2.3.0",
+  "author": {
+    "name": "arkitectco",
+    "url": "https://github.com/arkitectco"
+  },
+  "homepage": "https://github.com/arkitectco/SkillBotox",
+  "repository": "https://github.com/arkitectco/SkillBotox",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "governance",
+    "audit",
+    "evolution",
+    "meta",
+    "agent"
+  ],
+  "skills": "./skills/",
+  "commands": "./commands/",
+  "hooks": "./hooks/hooks.json"
+}
