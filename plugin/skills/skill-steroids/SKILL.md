@@ -41,7 +41,7 @@ Entry point for the skill library evolution loop.
 
 ## Monorepo note
 
-When cloned from GitHub, this pack lives at `packages/skill-pack/`. Eval fixtures and the web app live at repo root (`evals/`, `apps/web/`). `install.sh` symlinks this directory only.
+When cloned from GitHub, this pack lives at `plugin/skills/skill-steroids/`. Eval fixtures and the web app live at repo root (`evals/`, `apps/web/`). Marketplace install uses `./plugin`; `install.sh` is the symlink fallback onto this directory.
 
 ## Human-in-the-loop
 

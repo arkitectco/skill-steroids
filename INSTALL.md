@@ -5,7 +5,8 @@
 | Platform | Install |
 |----------|---------|
 | Cursor | Install **skill-steroids** from Cursor marketplace, or open this repo as a local plugin |
-| Claude Code | `claude plugin install skill-steroids` (after adding marketplace — see [docs/PUBLISHING.md](docs/PUBLISHING.md)) |
+| Claude Code | `/plugin marketplace add arkitectco/SkillBotox` then install **skill-steroids** (source is `./plugin`) |
+| Grok Build | `grok plugin install arkitectco/SkillBotox#plugin --trust` |
 | Codex | Install from Codex plugin registry after publish, or `./install.sh --with-codex` |
 
 **Plugin bootstrap:** Cursor, Claude, and Codex plugin installs inject `using-skill-steroids` at session start — agents learn trigger phrases automatically. Symlink install (`./install.sh`) does not inject hooks; optionally paste the bootstrap snippet below into a user rule or `AGENTS.md`.
@@ -32,15 +33,15 @@ cd SkillBotox
 
 ## What install does
 
-1. Symlinks `packages/skill-pack` to `~/.cursor/skills/skill-steroids`
+1. Symlinks `plugin/skills/skill-steroids` to `~/.cursor/skills/skill-steroids`
 2. Optionally symlinks to `~/.agents/skills/skill-steroids` (set `SKILL_STEROIDS_AGENTS=1`)
-3. Runs `packages/skill-pack/scripts/doctor.sh` and prints pass/fail
+3. Runs `plugin/skills/skill-steroids/scripts/doctor.sh` and prints pass/fail
 
 ## Verify
 
 ```bash
-./packages/skill-pack/scripts/doctor.sh
-./packages/skill-pack/scripts/stats.sh
+./plugin/skills/skill-steroids/scripts/doctor.sh
+./plugin/skills/skill-steroids/scripts/stats.sh
 ./evals/run-eval.sh
 ```
 
@@ -76,4 +77,4 @@ In a new Cursor agent chat: **"run skill steroids"**
 | skill-architect | `~/.agents/skills/skill-architect/SKILL.md` | Evolver create path |
 | skill-destroyer | install separately | Analyzer deep review |
 
-Run `./packages/skill-pack/scripts/doctor.sh` to check. Fallback rubric ships in `packages/skill-pack/references/skill-destroyer-rubric.md`.
+Run `./plugin/skills/skill-steroids/scripts/doctor.sh` to check. Fallback rubric ships in `plugin/skills/skill-steroids/references/skill-destroyer-rubric.md`.
