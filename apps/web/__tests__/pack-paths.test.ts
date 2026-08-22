@@ -4,7 +4,7 @@ import path from "path";
 import { getPackRoot, getRepoRoot } from "@/lib/pack/paths";
 
 describe("pack paths", () => {
-  it("getPackRoot resolves to packages/skill-pack with govern script", () => {
+  it("getPackRoot resolves to plugin/skills/skill-steroids with govern script", () => {
     const pack = getPackRoot();
     const govern = path.join(pack, "scripts/govern-check.sh");
     expect(fs.existsSync(govern)).toBe(true);

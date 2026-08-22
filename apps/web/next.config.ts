@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 import path from "path";
 
 const repoRoot = path.join(__dirname, "../..");
-const packRoot = path.join(repoRoot, "packages/skill-pack");
+const packRoot = path.join(repoRoot, "plugin/skills/skill-steroids");
 
 const nextConfig: NextConfig = {
   experimental: {
