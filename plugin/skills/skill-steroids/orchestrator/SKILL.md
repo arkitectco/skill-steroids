@@ -21,7 +21,7 @@ version: 1.2.0
 Combined markdown report with sections from `references/output-schemas.md` in order:
 Observation (if run) → Analysis → Governor verdicts → Decision summary → Lineage (if acted)
 
-Persist all sections to `references/runs/<run-id>.md`.
+Persist all sections to `.skill-steroids/runs/<run-id>.md` in the invoking project workspace (not the pack source tree). The `init-run.sh` script resolves the project root automatically.
 
 ## Modes
 
@@ -38,7 +38,7 @@ Persist all sections to `references/runs/<run-id>.md`.
 2. Infer scope from message (default: `full` for "run skill steroids", `library` for "skill library health")
 3. Run: `bash scripts/doctor.sh` — if FAIL, stop and report missing deps
 4. Run: `bash scripts/init-run.sh <mode> <scope>` — capture run file path
-5. If mode=mutate and skill-architect missing AND any create proposal likely: warn user, restrict to evolve-only
+5. If mode=mutate: create and evolve both use in-pack `evolver/SKILL.md` (no extra install)
 
 ### Step 1 — Observe
 
@@ -94,7 +94,7 @@ Skip entirely in audit mode.
 
 If any action taken: read `lineage/SKILL.md` and append to run file + CHANGELOG.
 
-Set status `closed`. Update `references/lineage/last-run.md` with completion timestamp.
+Set status `closed`. Update `.skill-steroids/last-run.md` (project-local) with completion timestamp.
 
 ### Step 7 — Close
 
@@ -104,5 +104,4 @@ Summarize: mode, run file path, signals addressed, verdicts, files touched, defe
 
 ## Error handling
 
-- Missing external skill-architect: stop Evolver; tell user to install at `~/.agents/skills/skill-architect/`
 - Zero proposals: report healthy library or insufficient data; suggest manual Observer notes

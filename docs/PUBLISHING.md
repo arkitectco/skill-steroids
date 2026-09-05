@@ -73,9 +73,6 @@ This syncs the `.codex-plugin/` manifest and `plugin/skills/skill-steroids` to t
 ```bash
 # After registry publish:
 codex plugin install skill-steroids
-
-# Or symlink directly (OSS fallback):
-./install.sh --with-codex
 ```
 
 ## 6. Post-release
@@ -89,7 +86,4 @@ codex plugin install skill-steroids
 
 | Variable | Purpose |
 |----------|---------|
-| `CODEX_HOME` | Override Codex home directory (default: `~/.codex`) |
-| `SKILL_STEROIDS_HOME` | Override source directory for symlink installs |
-| `SKILL_STEROIDS_CURSOR` | Override Cursor install target |
-| `SKILL_STEROIDS_AGENTS` | Set `1` to also install to `~/.agents/skills/` |
+| `CODEX_HOME` | Override Codex home directory (default: `~/.codex`) for registry sync |

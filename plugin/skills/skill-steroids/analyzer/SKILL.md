@@ -1,26 +1,27 @@
 ---
 name: skill-analyzer
-description: Performs systemic analysis across the user's skill library for gaps, overlap, principle drift, and underperformance. Complements skill-destroyer with library-wide view. Use in SkillSteroids Analyze step or when user asks "skill library health", "find skill gaps", "skill redundancy".
+description: Performs systemic analysis across the user's skill library for gaps, overlap, principle drift, and underperformance. Use in SkillSteroids Analyze step or when user asks "skill library health", "find skill gaps", "skill redundancy".
 disable-model-invocation: true
 version: 1.0.0
 ---
 
 # Skill Analyzer
 
-Evolves skill-destroyer's per-skill review into library-wide intelligence.
+Library-wide intelligence on top of the in-pack per-skill review rubric.
 
 ## Required reads
 
 1. `principles.md`, `metrics.md`
-2. `references/skill-destroyer-rubric.md` OR `skill-destroyer` skill if installed
+2. `references/skill-review-rubric.md`
 3. `references/output-schemas.md`
 
 ## Procedure
 
 ### Inventory
 
-Run: `bash scripts/skill-inventory.sh`  
-If script unavailable, manually scan `~/.cursor/skills` and `~/.agents/skills`.
+Run: `bash scripts/skill-inventory.sh --library`  
+Dedupes the same skill copied into `~/.cursor/skills`, `~/.agents/skills`, and `~/.claude/skills`. Use `--pack` for this plugin only.  
+If script unavailable, manually scan those user skill dirs (once, not three times).
 
 ### Scope limits (v1)
 
@@ -35,7 +36,7 @@ Structural pre-score: run `bash scripts/govern-check.sh` on each skill; prioriti
 
 - **full/library**: deep review up to cap (see above)
 - **skill:X**: review named skill only
-- Apply destroyer rubric; record OK/WARN/FAIL
+- Apply `references/skill-review-rubric.md`; record OK/WARN/FAIL
 
 ### Systemic passes
 

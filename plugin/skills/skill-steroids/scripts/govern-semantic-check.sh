@@ -45,12 +45,12 @@ else
   pass P-01
 fi
 
-# P-04: No duplication — BLOCK if embeds skill-architect or destroyer bodies inline
+# P-04: No duplication — BLOCK if a skill pastes another skill's body/templates/rubric
 if echo "$BODY" | grep -qiE 'Modular Skill Architect|skill-creator 2\.0|Category-Specific Templates'; then
-  fail P-04 "embeds skill-architect template content"
+  fail P-04 "embeds foreign skill-creator template dump"
 elif echo "$BODY" | grep -qiE 'Skill Review Rubric \(fallback\)|Ruthlessly review|destroyer rubric' && \
-     ! echo "$TARGET" | grep -q 'skill-destroyer-rubric'; then
-  fail P-04 "embeds skill-destroyer rubric inline"
+     ! echo "$TARGET" | grep -qE 'skill-review-rubric|skill-destroyer-rubric'; then
+  fail P-04 "embeds pack review rubric inline"
 else
   pass P-04
 fi

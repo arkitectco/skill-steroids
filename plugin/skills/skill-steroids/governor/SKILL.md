@@ -20,7 +20,7 @@ Quality gate for the SkillSteroids framework. **No proposed change proceeds with
 1. `principles.md` (repo root of skill-steroids pack)
 2. Target SKILL.md or proposal text
 3. `references/output-schemas.md` → Governor Verdict section
-4. If reviewing structure/quality depth: `~/.agents/skills/skill-architect/SKILL.md` anti-bloat sections only
+4. If reviewing structure/quality depth: `principles.md` anti-patterns and `references/skill-authoring.md`
 
 ## Procedure
 
@@ -39,7 +39,7 @@ Quality gate for the SkillSteroids framework. **No proposed change proceeds with
 - Borderline length (450–500 lines) → WARN with split recommendation
 - Description over 500 chars → BLOCK (P-02); over 300 → WARN with a rewritten, trimmed
   description in the verdict, not just a flag. Cut redundant trigger synonyms first.
-- Compatibility note missing for Superpowers overlap → WARN
+- Compatibility note missing when overlapping an installed process skill → WARN
 
 ## Output
 

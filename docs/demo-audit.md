@@ -6,13 +6,13 @@ Manual protocol to validate Analyzer proposal quality before trusting the loop.
 
 1. Pick 10 installed skills (mix of good and suspect)
 2. List 3 real friction events from recent work (bullets)
-3. Run: `./scripts/stats.sh` — record structural %
+3. Run: `./plugin/skills/skill-steroids/scripts/stats.sh` — record structural %
 
 ## Execute (20 min)
 
 1. New agent chat: "skill steroids audit"
 2. Paste your 3 friction bullets when Observer asks
-3. Save run artifact from `references/runs/`
+3. Save run artifact from `.skill-steroids/runs/` (project-local)
 
 ## Score (5 min)
 

@@ -7,6 +7,39 @@
     { "path": "plugin/.claude-plugin/plugin.json", "field": "version" },
     { "path": "plugin/.grok-plugin/plugin.json", "field": "version" }
   ],
+  "yamlVersion": [
+    { "path": "plugin/skills/skill-steroids/SKILL.md", "field": "version" }
+  ],
+  "packageJson": {
+    "path": "package.json",
+    "policy": "exclude",
+    "reason": "npm workspaces version tracks the web app, not the plugin"
+  },
+  "nestedSkillVersions": {
+    "policy": "exclude",
+    "reason": "component SKILL.md versions (orchestrator, governor, …) are independent of the plugin version"
+  },
+  "descriptionVariants": {
+    "canonical": "Governed audit and mutation for your AI agent skill library. Orchestrates observation, analysis, governance, and governed evolution.",
+    "claude": "Governed audit and mutation for your AI agent skill library. Use /skill-steroids audit or /skill-steroids mutate.",
+    "codex": "Meta-framework for deliberate evolution of your AI agent skill library — audit, govern, and mutate skills systematically."
+  },
+  "descriptions": [
+    { "path": ".cursor-plugin/plugin.json", "field": "description", "variant": "canonical" },
+    { "path": ".claude-plugin/plugin.json", "field": "description", "variant": "claude" },
+    { "path": ".claude-plugin/marketplace.json", "field": "plugins.0.description", "variant": "claude" },
+    { "path": "plugin/.claude-plugin/plugin.json", "field": "description", "variant": "claude" },
+    { "path": "plugin/.grok-plugin/plugin.json", "field": "description", "variant": "canonical" },
+    { "path": ".codex-plugin/plugin.json", "field": "description", "variant": "codex" }
+  ],
+  "commands": {
+    "dir": "plugin/commands",
+    "expected": ["audit", "mutate"]
+  },
+  "skillSlashPolicy": {
+    "path": "plugin/skills/skill-steroids/SKILL.md",
+    "forbidPattern": "(^|[^[:alnum:]_])/skill-steroids"
+  },
   "audit": {
     "exclude": [
       "CHANGELOG.md",
@@ -14,7 +47,8 @@
       ".git",
       ".version-bump.json",
       "scripts/bump-plugin-version.sh",
-      "package-lock.json"
+      "package-lock.json",
+      "package.json"
     ]
   }
 }

@@ -70,7 +70,7 @@ Template:
 
 ## Run Artifact
 
-Template (file: `references/runs/<run-id>.md`):
+Template (file: `.skill-steroids/runs/<run-id>.md` in the invoking project):
 
     # SkillSteroids Run
     **Run ID:** YYYY-MM-DD-HHMM

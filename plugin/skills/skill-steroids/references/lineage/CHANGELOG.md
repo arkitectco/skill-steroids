@@ -4,6 +4,44 @@ Append-only record of approved skill evolution actions.
 
 ---
 
+## 2026-09-05 — in-plugin create/review (no off-repo skill deps)
+
+- **Action:** evolve
+- **Target:** plugin/skills/skill-steroids/ (principles, analyzer, evolver, governor, orchestrator, doctor, references)
+- **Parent version:** principles 1.0.0 → **New version:** 1.1.0
+- **Signals resolved:** gap (create/review required skills not shipped in this repo)
+- **Lesson:** Product paths must resolve inside the pack. Create uses `templates/skill-template.md` + `references/skill-authoring.md`; review uses `references/skill-review-rubric.md`.
+
+## 2026-09-05 — skill-experimenter 1.0.2 (apply-shape and wire-in)
+
+- **Action:** evolve
+- **Target:** plugin/skills/skill-steroids/experimenter/
+- **Parent version:** 1.0.1 → **New version:** 1.0.2
+- **Signals resolved:** gap (lazy add-file apply)
+- **Lesson:** A sibling file that nothing routes to is not an apply; match winner grain, wire in, patch overlap, still graft the loser's unique criterion.
+- **Skill-local log:** experimenter/CHANGELOG.md
+- **Run:** `references/runs/2026-09-05-1345.md`
+
+## 2026-09-05 — skill-experimenter 1.0.1 (apply without flatten)
+
+- **Action:** evolve
+- **Target:** plugin/skills/skill-steroids/experimenter/
+- **Parent version:** 1.0.0 → **New version:** 1.0.1
+- **Signals resolved:** gap (post-experiment apply)
+- **Lesson:** Recommend-promote without apply rules caused models to flatten winner structure into a blended SKILL.md.
+- **Skill-local log:** experimenter/CHANGELOG.md
+- **Run:** `references/runs/2026-09-05-1341.md`
+
+## 2026-09-04 — article-writer 3.1 (default Taylor voice)
+
+- **Action:** evolve
+- **Target:** ~/.agents/skills/article-writer/
+- **Parent version:** 3.0 → **New version:** 3.1
+- **Signals resolved:** F-02, F-03
+- **Lesson:** Vendor the voice pack into the article skill; do not call a separate writing-voice skill at runtime.
+- **Skill-local log:** ~/.agents/skills/article-writer/CHANGELOG.md
+
+
 ## 2026-07-14 — mission-control wire-in (Tess + Perry)
 
 **Action:** create + evolve  
@@ -51,7 +89,7 @@ Append-only record of approved skill evolution actions.
 **Target:** `scripts/doctor.sh`
 **Parent version:** unversioned script → **New version:** unversioned script (behavior fix, no version field)
 **Signals resolved:** inferred/structural — self-audit run `references/runs/2026-07-20-2035.md`
-**Lesson:** `REPO_ROOT` must resolve the script's own directory with `cd -P` *before* walking `..` — plain `cd a/symlink/..` tracks the logical (lexical) path in bash, not the physical one, so it silently landed one level too shallow through the `~/.claude/skills/skill-steroids` → `packages/skill-pack` install symlink. Combined with marking the eval-runner check `required=1` (only Experimenter needs it, and Experimenter is explicitly excluded from the default loop), doctor FAILed on every real installed invocation, hard-blocking Step 0.3 for all mutate-mode runs outside this monorepo checkout. Demoted the check to optional, matching the existing `skill-architect` pattern.
+**Lesson:** `REPO_ROOT` must resolve the script's own directory with `cd -P` *before* walking `..` — plain `cd a/symlink/..` tracks the logical (lexical) path in bash, not the physical one, so it silently landed one level too shallow through the `~/.claude/skills/skill-steroids` → `packages/skill-pack` install symlink. Combined with marking the eval-runner check `required=1` (only Experimenter needs it, and Experimenter is explicitly excluded from the default loop), doctor FAILed on every real installed invocation, hard-blocking Step 0.3 for all mutate-mode runs outside this monorepo checkout. Demoted the check to optional, matching other optional doctor checks.
 
 ## 2026-07-24 — startup-design V1 infra-failure flow control
 

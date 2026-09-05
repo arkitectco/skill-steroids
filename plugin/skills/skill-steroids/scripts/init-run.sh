@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 # Create a new SkillSteroids run artifact.
+# Runs persist in the invoking project, not in the pack source tree.
 set -euo pipefail
 
-ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-RUNS="$ROOT/references/runs"
+PACK_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+# Resolve the project workspace: explicit override > git root > cwd.
+PROJECT_ROOT="${SKILL_STEROIDS_PROJECT_ROOT:-$(git rev-parse --show-toplevel 2>/dev/null || pwd)}"
+RUNS="$PROJECT_ROOT/.skill-steroids/runs"
+
 MODE="${1:-audit}"
 SCOPE="${2:-full}"
 RUN_ID="$(date +%Y-%m-%d-%H%M)"
@@ -43,14 +48,15 @@ cat > "$OUT" <<EOF
 (pending)
 EOF
 
-# Update last-run pointer
-cat > "$ROOT/references/lineage/last-run.md" <<EOF
+# Update last-run pointer (project-local)
+mkdir -p "$PROJECT_ROOT/.skill-steroids"
+cat > "$PROJECT_ROOT/.skill-steroids/last-run.md" <<EOF
 # Last Run
 
 **Run ID:** $RUN_ID
 **Mode:** $MODE
 **Scope:** $SCOPE
-**Artifact:** references/runs/$RUN_ID.md
+**Artifact:** .skill-steroids/runs/$RUN_ID.md
 **Started:** $(date -Iseconds)
 EOF
 

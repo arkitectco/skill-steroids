@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Verify SkillSteroids install and recommended dependencies.
+# Verify SkillSteroids install (pack-local files only).
 set -euo pipefail
 
 SCRIPT_DIR="$(cd -P "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -43,7 +43,8 @@ check "Governor" "$ROOT/governor/SKILL.md"
 check "Orchestrator" "$ROOT/orchestrator/SKILL.md"
 check "Principles" "$ROOT/principles.md"
 check "Eval runner (used by Experimenter only)" "$REPO_ROOT/evals/run-eval.sh" 0
-check "skill-architect (recommended)" "$HOME/.agents/skills/skill-architect/SKILL.md" 0
+check "Skill authoring notes" "$ROOT/references/skill-authoring.md"
+check "Skill review rubric" "$ROOT/references/skill-review-rubric.md"
 
 if [[ -f "$ROOT/using-skill-steroids/SKILL.md" ]]; then
   echo "✓ Bootstrap: $ROOT/using-skill-steroids/SKILL.md"
@@ -51,18 +52,28 @@ else
   echo "⚠ Bootstrap skill missing (plugin hooks will inject nothing useful)"
 fi
 
+# Pack checkout or marketplace plugin-root is enough. A Cursor
+# ~/.cursor/skills symlink is leftover from the old OSS pack and is not required.
+plugin_root="${CURSOR_PLUGIN_ROOT:-${CLAUDE_PLUGIN_ROOT:-${PLUGIN_ROOT:-}}}"
 if [[ "${CI:-}" == "true" ]]; then
-  echo "ℹ CI mode: skipping Cursor install check"
-elif [[ -L "$HOME/.cursor/skills/skill-steroids" ]] || [[ -d "$HOME/.cursor/skills/skill-steroids" ]]; then
-  echo "✓ Cursor install: ~/.cursor/skills/skill-steroids"
+  echo "ℹ CI mode: skipping host-install probe"
+elif [[ -n "$plugin_root" ]]; then
+  echo "✓ Plugin root present: $plugin_root"
+elif [[ -f "$ROOT/SKILL.md" ]]; then
+  echo "✓ Pack root present: $ROOT"
+fi
+
+if [[ -L "$HOME/.cursor/skills/skill-steroids" ]] || [[ -d "$HOME/.cursor/skills/skill-steroids" ]]; then
+  echo "✓ Cursor symlink: ~/.cursor/skills/skill-steroids (optional)"
 else
-  echo "✗ Cursor install: not found (run ./install.sh)"
-  FAIL=1
+  echo "ℹ Cursor symlink not found (optional leftover; plugin install is enough)"
 fi
 
 if [[ -x "$ROOT/scripts/skill-inventory.sh" ]]; then
-  COUNT="$("$ROOT/scripts/skill-inventory.sh" 2>/dev/null | grep -c '/SKILL.md$' || true)"
-  echo "ℹ Skills discovered: ${COUNT:-0}"
+  COUNT="$("$ROOT/scripts/skill-inventory.sh" --library 2>/dev/null | grep -c '/SKILL.md$' || true)"
+  echo "ℹ User library skills (unique): ${COUNT:-0}"
+  PACK_COUNT="$("$ROOT/scripts/skill-inventory.sh" --pack 2>/dev/null | grep -c '/SKILL.md$' || true)"
+  echo "ℹ Plugin pack skills: ${PACK_COUNT:-0}"
 fi
 
 echo ""

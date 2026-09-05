@@ -1,14 +1,14 @@
 # SkillSteroids Principles (Living Constitution)
 
-Version: 1.0.0  
-Last updated: 2026-06-15
+Version: 1.1.0  
+Last updated: 2026-09-05
 
 The Governor enforces these rules on every proposed skill create, modify, merge, or prune.
 
 ## Core Values
 
 1. **Modularity** — One skill, one primary job. Split when a SKILL.md exceeds ~450 lines or covers unrelated triggers.
-2. **Composability** — Skills delegate to other skills; never duplicate skill-architect or skill-destroyer workflows inline.
+2. **Composability** — Skills delegate to other installed skills; never paste another skill's body, templates, or rubric inline.
 3. **Clarity** — Imperative instructions, explicit inputs/outputs, named trigger phrases in descriptions.
 4. **Low cognitive load** — No teaching the model what it already knows; no filler prose.
 5. **Principle-driven** — Every skill aligns with this file; cite principle ID on violations.
@@ -20,12 +20,12 @@ The Governor enforces these rules on every proposed skill create, modify, merge,
 | ID | Rule | BLOCK if |
 |----|------|----------|
 | P-01 | Single responsibility | Skill handles 2+ unrelated domains without router pattern |
-| P-02 | Trigger-rich description | Description missing WHEN triggers, under 20 chars, or over 500 chars |
+| P-02 | Trigger-rich description | Description has no situation cue, under 20 chars, or over 500 chars |
 | P-03 | No bloat | SKILL.md body > 500 lines without references/ split |
-| P-04 | No duplication | Re-implements skill-architect templates or destroyer rubric |
+| P-04 | No duplication | Pastes another skill's body, templates, or the pack review rubric into a different skill |
 | P-05 | Explicit I/O | Missing Input/Output section for orchestrator skills |
 | P-06 | Safe evolution | Proposes delete/replace without lineage entry plan |
-| P-07 | Compatible stacks | Conflicts with Superpowers process skills without override note |
+| P-07 | Compatible stacks | Conflicts with other installed process skills without an override note |
 | P-08 | Markdown-first | Adds script when markdown suffices (see PRD scripts policy) |
 
 ## Anti-Patterns

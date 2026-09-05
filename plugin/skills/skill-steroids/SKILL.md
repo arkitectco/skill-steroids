@@ -4,7 +4,7 @@ description: Meta-framework for deliberate evolution of an AI agent skill librar
 disable-model-invocation: true
 user-invocable: true
 argument-hint: "[audit|mutate] [scope]"
-version: 2.3.0
+version: 2.3.1
 ---
 
 # SkillSteroids Framework
@@ -13,17 +13,19 @@ Entry point for the skill library evolution loop.
 
 ## Activation
 
+Natural-language phrases work on every host. Claude/Grok slash-command shims live in the plugin `commands/` directory (`audit`, `mutate`) — do not copy those host prefixes into this file.
+
 | User says | Mode |
 |-----------|------|
-| `/skill-steroids`, `/skill-steroids audit`, "run skill steroids", "skill steroids audit" | audit |
-| `/skill-steroids mutate`, "skill steroids mutate", "evolve skill X" | mutate |
+| "run skill steroids", "skill steroids audit", "skill library health" | audit |
+| "skill steroids mutate", "evolve skill X" | mutate |
 
 `$ARGUMENTS` is `audit` or `mutate` plus optional scope. Empty arguments → audit.
 
 1. Read `evolution.md` for trigger context
 2. Read `orchestrator/SKILL.md` and execute from Step 0
 3. Never skip Governor before any write
-4. Persist all output to `references/runs/<run-id>.md`
+4. Persist all output to `.skill-steroids/runs/<run-id>.md` (project-local, not pack source)
 
 ## Pack layout
 
@@ -41,7 +43,7 @@ Entry point for the skill library evolution loop.
 
 ## Monorepo note
 
-When cloned from GitHub, this pack lives at `plugin/skills/skill-steroids/`. Eval fixtures and the web app live at repo root (`evals/`, `apps/web/`). Marketplace install uses `./plugin`; `install.sh` is the symlink fallback onto this directory.
+When cloned from GitHub, skill content lives at `plugin/skills/skill-steroids/`. Eval fixtures and the web app live at repo root (`evals/`, `apps/web/`). Users install the `./plugin` marketplace package — not a separate skill-pack symlink.
 
 ## Human-in-the-loop
 

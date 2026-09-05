@@ -149,10 +149,68 @@ check_manifest "Codex" "$ROOT/.codex-plugin/plugin.json"
 check_hooks "Cursor" "$ROOT/.cursor-plugin/plugin.json"
 check_hooks "Claude (repo)" "$ROOT/.claude-plugin/plugin.json"
 check_hooks "Claude (plugin)" "$ROOT/plugin/.claude-plugin/plugin.json"
+check_hooks "Grok (plugin)" "$ROOT/plugin/.grok-plugin/plugin.json"
 check_hooks "Codex" "$ROOT/.codex-plugin/plugin.json"
 
-check_no_escape "Claude pack hooks" "$PACK/hooks/hooks.json"
+if [[ -f "$PACK/hooks/hooks.json" ]]; then
+  echo "✗ pack hooks/hooks.json must not exist — Claude/Grok use plugin/hooks/hooks.json"
+  FAIL=1
+else
+  echo "✓ no pack-level Claude hooks.json (single source: plugin/hooks/hooks.json)"
+fi
+
 check_no_escape "Claude plugin hooks" "$ROOT/plugin/hooks/hooks.json"
+
+if grep -q 'skills/skill-steroids/hooks/run-hook.cmd' "$ROOT/plugin/hooks/hooks.json"; then
+  echo "✓ plugin/hooks/hooks.json runner is pack hooks/run-hook.cmd"
+else
+  echo "✗ plugin/hooks/hooks.json must invoke skills/skill-steroids/hooks/run-hook.cmd"
+  FAIL=1
+fi
+
+runner="$PACK/hooks/run-hook.cmd"
+if [[ -f "$runner" ]]; then
+  echo "✓ hook runner → $runner"
+else
+  echo "✗ hook runner missing: $runner"
+  FAIL=1
+fi
+
+check_hook_file() {
+  local label="$1"
+  local manifest="$2"
+  local hooks_rel hooks_file manifest_dir plugin_root
+  hooks_rel="$(jq -r '.hooks // empty' "$manifest")"
+  [[ -z "$hooks_rel" ]] && return
+  manifest_dir="$(cd "$(dirname "$manifest")" && pwd)"
+  plugin_root="$(plugin_root_of "$manifest_dir")"
+  if [[ -f "$plugin_root/$hooks_rel" ]]; then
+    hooks_file="$plugin_root/$hooks_rel"
+  elif [[ -f "$manifest_dir/$hooks_rel" ]]; then
+    hooks_file="$manifest_dir/$hooks_rel"
+  else
+    return
+  fi
+  local cmd
+  cmd="$(grep -oE '(\./run-hook\.cmd|/\$\{[A-Z_]+\}/[^"]*run-hook\.cmd|skills/skill-steroids/hooks/run-hook\.cmd|hooks/run-hook\.cmd)' "$hooks_file" | head -1 || true)"
+  local resolved=""
+  case "$cmd" in
+    ./run-hook.cmd) resolved="$(dirname "$hooks_file")/run-hook.cmd" ;;
+    *skills/skill-steroids/hooks/run-hook.cmd*) resolved="$PACK/hooks/run-hook.cmd" ;;
+    *hooks/run-hook.cmd*) resolved="$PACK/hooks/run-hook.cmd" ;;
+  esac
+  if [[ -n "$resolved" && -f "$resolved" ]]; then
+    echo "✓ $label hook command resolves → $resolved"
+  else
+    echo "✗ $label hook command did not resolve to an existing runner (cmd='$cmd')"
+    FAIL=1
+  fi
+}
+
+check_hook_file "Cursor" "$ROOT/.cursor-plugin/plugin.json"
+check_hook_file "Claude (plugin)" "$ROOT/plugin/.claude-plugin/plugin.json"
+check_hook_file "Grok (plugin)" "$ROOT/plugin/.grok-plugin/plugin.json"
+check_hook_file "Codex" "$ROOT/.codex-plugin/plugin.json"
 
 "$ROOT/scripts/bump-plugin-version.sh" --check || FAIL=1
 

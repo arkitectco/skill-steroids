@@ -1,10 +1,21 @@
 # SkillSteroids Run Artifacts
 
-Each orchestrator execution creates one file: `references/runs/<run-id>.md`.
+> **Since v2.4:** Run artifacts persist in the **invoking project**, not in the pack source tree.
+> New runs land at `<project-root>/.skill-steroids/runs/<run-id>.md`.
+> This directory contains only legacy runs from before that change.
 
 ## Run ID format
 
 `YYYY-MM-DD-HHMM` (UTC or local — be consistent within a run)
+
+## Where runs go
+
+`init-run.sh` resolves the project root in order:
+1. `$SKILL_STEROIDS_PROJECT_ROOT` (explicit override)
+2. `git rev-parse --show-toplevel` (git repo root)
+3. `$PWD` (fallback)
+
+The run file and `last-run.md` pointer both land under `<project-root>/.skill-steroids/`.
 
 ## Resume protocol
 

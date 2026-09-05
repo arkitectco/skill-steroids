@@ -5,11 +5,25 @@ All notable changes to SkillSteroids are documented here.
 ## [Unreleased]
 
 ### Changed
+- Removed OSS standalone pack install (`install.sh` / `~/.cursor/skills` symlink). Plugin marketplace is the only install path
+- P-02 structural check accepts situation cues beyond "Use when" (use for / trigger / quoted phrases)
+- Doctor PASSes on pack/plugin-root; Cursor `~/.cursor/skills` symlink is optional leftover
+- Manifest check fails on version, description, and command-count drift (`package.json` excluded from plugin version)
+- Removed pack `hooks/hooks.json`; Claude/Grok SessionStart uses `plugin/hooks/hooks.json` only
+- Root `SKILL.md` activation is host-neutral; slash commands stay in `plugin/commands/`
+- Grok manifest declares `skills`, `commands`, and `hooks`
+- README current version is 2.3.1; getting started points at INSTALL.md instead of HANDOFFER.md
+- Create/review stay in-plugin (no skill-architect / skill-destroyer deps)
 - Collapsed the OSS skill pack into `plugin/skills/skill-steroids` (removed the `packages/skill-pack` dual tree)
 - Slim `plugin/` install surface (Impeccable-style): `skills/skill-steroids`, `commands/`, `hooks/`, `.claude-plugin` + `.grok-plugin`
 - Claude marketplace `source` is `./plugin` (no longer the monorepo root)
 - Hook commands resolve via `${CLAUDE_PLUGIN_ROOT}` inside the plugin package
 - Entry skill is user-invocable (`/skill-steroids [audit|mutate]`); bootstrap skill is not
+
+## [2.3.1] - 2026-09-05
+
+### Changed
+- Experimenter step 7 grafts onto the winner's architecture (shape + wire-in + overlap); reject flatten; majority win still takes the loser's leftover
 
 ## [2.3.0] - 2026-06-27
 

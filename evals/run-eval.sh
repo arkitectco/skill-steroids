@@ -53,6 +53,12 @@ assert_fixture "evals/golden-pass/minimal-skill/SKILL.md" P-02 pass
 assert_fixture "evals/golden-pass/minimal-skill/SKILL.md" P-03 pass
 assert_fixture "evals/golden-pass/minimal-skill/SKILL.md" P-05 pass
 
+assert_fixture "evals/golden-pass/folded-desc/SKILL.md" P-02 pass
+assert_fixture "evals/golden-pass/folded-desc/SKILL.md" P-03 pass
+
+assert_fixture "evals/golden-pass/alt-trigger/SKILL.md" P-02 pass
+assert_fixture "evals/golden-pass/use-this-when/SKILL.md" P-02 pass
+
 assert_fixture "evals/golden-violations/short-desc/SKILL.md" P-02 fail
 assert_fixture "evals/golden-violations/bloated/SKILL.md" P-03 fail
 assert_fixture "evals/golden-violations/missing-io/SKILL.md" P-05 fail "--orchestrator"

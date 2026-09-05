@@ -38,7 +38,7 @@ A change is an improvement only if it resolves ≥1 friction/gap signal AND pass
 
 | Metric | Source | Healthy | Meaning |
 |--------|--------|---------|---------|
-| Structural health | `./scripts/stats.sh` | ≥90% | % skills passing P-02, P-03, P-05 govern-check |
+| Structural health | `./scripts/stats.sh` | ≥90% | % unique library skills passing P-02, P-03, P-05 |
 | Open gaps | Last run artifact | 0 | Unfilled skill domains from Analyzer |
 | Unresolved BLOCKs | Last run artifact | 0 | Governor BLOCK verdicts not yet addressed |
 

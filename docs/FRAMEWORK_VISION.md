@@ -10,34 +10,31 @@ The goal is to create compounding improvement over time instead of accumulating 
 
 ## What Exists Today
 
-You currently have two strong foundational pieces:
+Most libraries are a pile of `SKILL.md` files created one at a time. That works until you have dozens of skills and no loop for:
 
-- **skill-architect**: Excellent at creating well-structured, production-ready skills.
-- **skill-destroyer**: Strong at ruthlessly reviewing and identifying issues in existing skills.
-
-These are valuable but operate in isolation. They lack the connecting tissue of:
 - Systematic observation of real usage
 - Library-wide analysis
 - Safe experimentation
 - Principle-based governance
 - Lineage and knowledge retention from changes
 
-## The Missing Evolutionary Loop
+SkillSteroids is that loop. Authoring template, review rubric, and Governor ship inside the plugin.
 
-A complete system needs a closed feedback loop:
+## The Evolutionary Loop
 
 1. **Observe** — Capture usage patterns, friction signals, and context from real work.
 2. **Analyze** — Identify systemic issues across the entire library (gaps, overlap, drift, underperformance).
 3. **Govern** — Enforce your evolving principles and quality standards on every change.
-4. **Evolve / Mutate** — Improve existing skills and create new ones based on data (building on skill-architect).
+4. **Evolve / Mutate** — Improve existing skills and create new ones from in-pack authoring notes.
 5. **Experiment** — Safely test variations and measure real impact.
 6. **Record Lineage** — Track successful mutations and preserve knowledge from pruned skills.
 7. **Orchestrate** — Decide when and what to evolve, with appropriate human-in-the-loop checkpoints.
 
 ## Design Principles for This Framework
 
+- **Plugin-complete** — Install the plugin; create and review without extra skills.
 - **Modular** — Small, focused skills (Observer, Analyzer, Governor, Evolver, etc.) rather than one giant meta-skill.
-- **Composable** — Works alongside (does not conflict with) Superpowers, GSD, Matt Pocock’s skills, and your existing tools.
+- **Composable** — Route to other skills already in the user's library; never paste their bodies.
 - **Observable & Measurable** — Clear metrics and signals so improvement is objective.
 - **Principle-Driven** — A living `principles.md` acts as the constitution that all skills must align with.
 - **Evolutionary, Not Just Curative** — Focuses on forward improvement and compounding value, not only pruning bloat.
@@ -51,5 +48,3 @@ This framework becomes the **meta-operating system** for your skill library — 
 It should eventually integrate with (or become part of) a broader Personal Agent Overseer / Daily Driver system.
 
 ---
-
-*This vision was developed in collaboration with the user on June 14, 2026.*

@@ -11,8 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Run doctor (pack-only in CI)
-        run: CI=true ./plugin/skills/skill-steroids/scripts/doctor.sh
+      - name: Run doctor (pack checkout, no Cursor symlink)
+        run: HOME="${RUNNER_TEMP:-/tmp}/ss-empty-home" ./plugin/skills/skill-steroids/scripts/doctor.sh
+      - name: Test inventory dedupe
+        run: ./tests/inventory/test-inventory.sh
       - name: Verify plugin manifests
         run: ./scripts/verify-plugin-manifests.sh
       - name: Test SessionStart hooks

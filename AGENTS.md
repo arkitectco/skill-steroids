@@ -6,9 +6,9 @@ npm workspaces monorepo: markdown skill pack (`plugin/skills/skill-steroids`) + 
 
 - Never write or delete a skill file without Governor PASS/WARN and explicit user approval. Audit mode is reports only.
 - Pack skills are markdown-first. Add a script only when markdown cannot scan, log, or validate.
-- Do not duplicate `skill-architect` or `skill-destroyer`. Delegate.
+- Do not paste another skill's body into a new skill (P-04). Delegate by name.
 - Meta skills must keep `disable-model-invocation: true`.
-- Persist every audit/mutate run to `plugin/skills/skill-steroids/references/runs/<run-id>.md`.
+- Persist every audit/mutate run to `.skill-steroids/runs/<run-id>.md` in the invoking project (not the pack source tree). `init-run.sh` resolves the project root via git or `$SKILL_STEROIDS_PROJECT_ROOT`.
 - Do not invoke experimenter in the default loop.
 
 ## Stack
@@ -34,16 +34,15 @@ npm run dev                          # Next.js studio, http://localhost:3000
 npm run build                        # web production build
 npm run test:web                     # vitest run
 npm run evals                        # structural golden fixtures
-./plugin/skills/skill-steroids/scripts/doctor.sh   # pack health (Cursor symlink required locally)
+./plugin/skills/skill-steroids/scripts/doctor.sh   # pack health (plugin-root or pack checkout PASSes; Cursor symlink optional)
 ./evals/run-semantic-eval.sh
 ./tests/hooks/test-session-start.sh
 ./scripts/verify-plugin-manifests.sh
 ./plugin/skills/skill-steroids/scripts/stats.sh
-./install.sh                         # symlink fallback to plugin/skills/skill-steroids
 # grok plugin install arkitectco/skill-steroids#plugin --trust
 ```
 
-CI also runs `CI=true ./plugin/skills/skill-steroids/scripts/doctor.sh` (skips Cursor install check).
+CI runs `./plugin/skills/skill-steroids/scripts/doctor.sh` (pack/plugin-root PASSes without a Cursor symlink).
 
 ## Structure
 
@@ -80,4 +79,4 @@ Conventional commits: `feat:`, `fix:`, `docs:`, `chore:`, `ci:`. Feature branche
 - User-facing docs: `README.md`, `INSTALL.md`, `docs/PUBLISHING.md`.
 - Agent loop spec: `plugin/skills/skill-steroids/SKILL.md` then `orchestrator/SKILL.md`.
 - Session bootstrap only (not the full loop): `plugin/skills/skill-steroids/using-skill-steroids/SKILL.md`.
-- External deps (optional): `skill-architect` at `~/.agents/skills/skill-architect/`; fallback rubric in `plugin/skills/skill-steroids/references/skill-destroyer-rubric.md`.
+- In-plugin create/review: `templates/skill-template.md` + `references/skill-authoring.md`; review via `references/skill-review-rubric.md`. No OSS skill-pack install.
