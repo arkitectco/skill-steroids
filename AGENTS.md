@@ -1,6 +1,6 @@
 # SkillSteroids
 
-npm workspaces monorepo: markdown skill pack (`plugin/skills/skill-steroids`) + Next.js audit studio (`apps/web`). Repo folder is `SkillBotox`; product/plugin name is SkillSteroids.
+npm workspaces monorepo: markdown skill pack (`plugin/skills/skill-steroids`) + Next.js audit studio (`apps/web`). Repo folder is `skill-steroids`; product/plugin name is SkillSteroids.
 
 ## Rules
 
@@ -40,7 +40,7 @@ npm run evals                        # structural golden fixtures
 ./scripts/verify-plugin-manifests.sh
 ./plugin/skills/skill-steroids/scripts/stats.sh
 ./install.sh                         # symlink fallback to plugin/skills/skill-steroids
-# grok plugin install arkitectco/SkillBotox#plugin --trust
+# grok plugin install arkitectco/skill-steroids#plugin --trust
 ```
 
 CI also runs `CI=true ./plugin/skills/skill-steroids/scripts/doctor.sh` (skips Cursor install check).

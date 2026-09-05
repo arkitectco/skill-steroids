@@ -7,7 +7,7 @@
 **One-line install:**
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/arkitectco/SkillBotox/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/arkitectco/skill-steroids/main/install.sh | bash
 ```
 
 See [INSTALL.md](INSTALL.md) for all agents.
@@ -95,7 +95,7 @@ In a new agent chat, ask **"skill steroids audit"** (reports only) or **"skill s
 
 ## Plugin packaging
 
-Primary install is the plugin marketplace (`./plugin`). Grok: `grok plugin install arkitectco/SkillBotox#plugin --trust`. Use `./install.sh` as the symlink fallback onto `plugin/skills/skill-steroids`. See [PUBLISHING.md](docs/PUBLISHING.md).
+Primary install is the plugin marketplace (`./plugin`). Grok: `grok plugin install arkitectco/skill-steroids#plugin --trust`. Use `./install.sh` as the symlink fallback onto `plugin/skills/skill-steroids`. See [PUBLISHING.md](docs/PUBLISHING.md).
 
 Plugin installs inject `using-skill-steroids` at session start (SessionStart hooks). The full audit/mutate loop runs only when you ask.
 

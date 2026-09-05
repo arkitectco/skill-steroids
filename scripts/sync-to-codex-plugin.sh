@@ -2,7 +2,7 @@
 #
 # sync-to-codex-plugin.sh
 #
-# Sync plugin/skills/skill-steroids from this SkillBotox checkout →
+# Sync plugin/skills/skill-steroids from this skill-steroids checkout →
 # arkitectco/openai-codex-plugins (plugins/skill-steroids/).
 #
 # Builds a skill-only temp source dir from plugin/skills/skill-steroids/ +
@@ -270,7 +270,7 @@ fi
 
 git add "$DEST_REL"
 
-UPSTREAM_REPO_URL="https://github.com/arkitectco/SkillBotox"
+UPSTREAM_REPO_URL="https://github.com/arkitectco/skill-steroids"
 
 if [[ $BOOTSTRAP -eq 1 ]]; then
   COMMIT_TITLE="bootstrap skill-steroids v$UPSTREAM_VERSION from upstream main @ $UPSTREAM_SHORT"
@@ -284,7 +284,7 @@ Upstream commit: $UPSTREAM_REPO_URL/commit/$UPSTREAM_SHA
 This is a one-time bootstrap. Subsequent syncs will use the same script without \`--bootstrap\`."
 else
   COMMIT_TITLE="sync skill-steroids v$UPSTREAM_VERSION from upstream main @ $UPSTREAM_SHORT"
-  PR_BODY="Automated sync from SkillBotox upstream \`main\` @ \`$UPSTREAM_SHORT\` (v$UPSTREAM_VERSION).
+  PR_BODY="Automated sync from skill-steroids upstream \`main\` @ \`$UPSTREAM_SHORT\` (v$UPSTREAM_VERSION).
 
 Flattens \`plugin/skills/skill-steroids/\` to \`$DEST_REL/\` and copies the Codex manifest with skills path rewritten to \`\"./\"\`.
 

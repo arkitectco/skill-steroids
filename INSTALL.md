@@ -5,8 +5,8 @@
 | Platform | Install |
 |----------|---------|
 | Cursor | Install **skill-steroids** from Cursor marketplace, or open this repo as a local plugin |
-| Claude Code | `/plugin marketplace add arkitectco/SkillBotox` then install **skill-steroids** (source is `./plugin`) |
-| Grok Build | `grok plugin install arkitectco/SkillBotox#plugin --trust` |
+| Claude Code | `/plugin marketplace add arkitectco/skill-steroids` then install **skill-steroids** (source is `./plugin`) |
+| Grok Build | `grok plugin install arkitectco/skill-steroids#plugin --trust` |
 | Codex | Install from Codex plugin registry after publish, or `./install.sh --with-codex` |
 
 **Plugin bootstrap:** Cursor, Claude, and Codex plugin installs inject `using-skill-steroids` at session start — agents learn trigger phrases automatically. Symlink install (`./install.sh`) does not inject hooks; optionally paste the bootstrap snippet below into a user rule or `AGENTS.md`.
@@ -20,14 +20,14 @@ After multi-step work, if skill friction occurred, suggest: **"skill steroids au
 ## Quick install (macOS / Linux / WSL)
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/arkitectco/SkillBotox/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/arkitectco/skill-steroids/main/install.sh | bash
 ```
 
 Or from a local clone:
 
 ```bash
-git clone https://github.com/arkitectco/SkillBotox.git
-cd SkillBotox
+git clone https://github.com/arkitectco/skill-steroids.git
+cd skill-steroids
 ./install.sh
 ```
 

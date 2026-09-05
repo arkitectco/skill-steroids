@@ -57,7 +57,7 @@ For org-level publish, use the org equivalent command. See [Claude plugin docs](
 ## 4b. Grok Build
 
 ```bash
-grok plugin install arkitectco/SkillBotox#plugin --trust
+grok plugin install arkitectco/skill-steroids#plugin --trust
 ```
 
 The `#plugin` suffix installs the slim package the same way Impeccable does. Project-local Claude/Grok marketplaces already pick up `.claude-plugin/marketplace.json`.
